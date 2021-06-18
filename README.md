@@ -1,7 +1,7 @@
 EffectLib - Manage your effects the nice way.
 =========
 
-You have no idea what an vector or matrix is, but you want to give your users some nice effects with particles? No problem. this library comes with a load of effects for you. It handles rotation, text-parsing, and creation of 3D objects with particles in Minecraft.
+You have no idea what a vector or matrix is, but you want to give your users some nice effects with particles? No problem. this library comes with a load of effects for you. It handles rotation, text-parsing, and creation of 3D objects with particles in Minecraft.
 
   - Text-Parsing
   - 3D cubes, spheres, stars and others
@@ -11,6 +11,9 @@ You have no idea what an vector or matrix is, but you want to give your users so
 Find more information on [BukkitForums] [forum] or [BukkitDev] [dev]!
 
 Note that **this library** is no standalone plugin! You have to **create yourself a plugin** to run the effects!
+
+See here: https://github.com/elBukkit/EffectLibDemo
+for a full working example.
 
 # How to Shade
 
