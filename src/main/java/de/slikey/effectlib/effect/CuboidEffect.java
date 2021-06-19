@@ -66,6 +66,11 @@ public class CuboidEffect extends Effect {
     }
 
     @Override
+    public void reloadParameters() {
+        initialized = false;
+    }
+
+    @Override
     public void onRun() {
         Location target = getTarget();
         Location location = getLocation();

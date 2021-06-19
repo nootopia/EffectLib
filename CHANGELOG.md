@@ -4,6 +4,7 @@
 
  - Fix issues with concurrent uses of the same EquationEffect
  - The Cuboid action will use its padding parameter along with x/y/z length
+ - Make the Modified effect work with CuboidEffect
 
 # 9.0
 

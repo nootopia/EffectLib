@@ -220,6 +220,7 @@ public class ModifiedEffect extends Effect {
         }
 
         try {
+            innerEffect.reloadParameters();
             innerEffect.onRun();
         } catch (Exception ex) {
             innerEffect.onDone();

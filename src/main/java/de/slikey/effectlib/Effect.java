@@ -510,4 +510,7 @@ public abstract class Effect implements Runnable {
         this.startTime = startTime;
     }
 
+    public void reloadParameters() {
+
+    }
 }
