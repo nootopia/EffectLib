@@ -3,6 +3,7 @@
 # 9.1
 
  - Fix issues with concurrent uses of the same EquationEffect
+ - The Cuboid action will use its padding parameter along with x/y/z length
 
 # 9.0
 
