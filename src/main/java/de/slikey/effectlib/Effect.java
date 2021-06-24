@@ -42,6 +42,14 @@ public abstract class Effect implements Runnable {
     public String colors = null;
 
     /**
+     * Used for dust particles in 1.17 and up, to make a color transition.
+     */
+    public Color toColor = null;
+
+    public List<Color> toColorList = null;
+    public String toColors = null;
+
+    /**
      * This can be used to give particles a set speed when spawned.
      * This will not work with colored particles.
      */
@@ -219,20 +227,28 @@ public abstract class Effect implements Runnable {
         visibleRange = effectManager.getParticleRange();
     }
 
+    protected List<Color> parseColorList(String colors) {
+        List<Color> colorList = new ArrayList<>();
+        String[] args = colors.split(",");
+        if (args.length >= 1) {
+            for (String str : args) {
+                try {
+                    int rgb = Integer.parseInt(str.trim().replace("#", ""), 16);
+                    colorList.add(Color.fromRGB(rgb));
+                } catch (NumberFormatException ignored) {}
+            }
+        }
+        return colorList;
+    }
+
     protected void initialize() {
         if (period < 1) period = 1;
 
         if (colors != null) {
-            colorList = new ArrayList<>();
-            String[] args = colors.split(",");
-            if (args.length >= 1) {
-                for (String str : args) {
-                    try {
-                        int rgb = Integer.parseInt(str.trim().replace("#", ""), 16);
-                        colorList.add(Color.fromRGB(rgb));
-                    } catch (NumberFormatException ignored) {}
-                }
-            }
+            colorList = parseColorList(colors);
+        }
+        if (toColors != null) {
+            toColorList = parseColorList(toColors);
         }
 
         if (subEffect != null) {
@@ -437,6 +453,10 @@ public abstract class Effect implements Runnable {
     }
 
     protected void display(Particle particle, Location location, Color color, float speed, int amount) {
+        display(particle, location, color, toColor, speed, amount);
+    }
+
+    protected void display(Particle particle, Location location, Color color, Color toColor, float speed, int amount) {
         // display particles only when particleCount is equal or more than 0
         if (particleCount >= 0) {
             if (targetPlayers == null && targetPlayer != null) {
@@ -449,8 +469,13 @@ public abstract class Effect implements Runnable {
                 currentColor = colorList.get(ThreadLocalRandom.current().nextInt(colorList.size()));
             }
 
+            Color currentToColor = toColor;
+            if (toColorList != null && !toColorList.isEmpty()) {
+                currentToColor = toColorList.get(ThreadLocalRandom.current().nextInt(colorList.size()));
+            }
+
             effectManager.display(particle, location, particleOffsetX, particleOffsetY, particleOffsetZ, speed, amount,
-                    particleSize, currentColor, material, materialData, visibleRange, targetPlayers);
+                    particleSize, currentColor, currentToColor, material, materialData, visibleRange, targetPlayers);
         }
 
         if (subEffectClass != null) effectManager.start(subEffectClass, subEffect, location);

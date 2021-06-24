@@ -38,6 +38,7 @@ import de.slikey.effectlib.util.DynamicLocation;
 import de.slikey.effectlib.util.ImageLoadCallback;
 import de.slikey.effectlib.util.ImageLoadTask;
 import de.slikey.effectlib.util.ParticleDisplay;
+import de.slikey.effectlib.util.ParticleOptions;
 
 /**
  * Dispose the EffectManager if you don't need him anymore.
@@ -84,7 +85,13 @@ public class EffectManager implements Disposable {
     }
 
     public void display(Particle particle, Location center, float offsetX, float offsetY, float offsetZ, float speed, int amount, float size, Color color, Material material, byte materialData, double range, List<Player> targetPlayers) {
-        getDisplay().display(particle, center, offsetX, offsetY, offsetZ, speed, amount, size, color, material, materialData, range, targetPlayers);
+        ParticleOptions options = new ParticleOptions(offsetX, offsetY, offsetZ, speed, amount, size, color, material, materialData);
+        getDisplay().display(particle, options, center, range, targetPlayers);
+    }
+
+    public void display(Particle particle, Location center, float offsetX, float offsetY, float offsetZ, float speed, int amount, float size, Color color, Color toColor, Material material, byte materialData, double range, List<Player> targetPlayers) {
+        ParticleOptions options = new ParticleOptions(offsetX, offsetY, offsetZ, speed, amount, size, color, toColor, material, materialData);
+        getDisplay().display(particle, options, center, range, targetPlayers);
     }
 
     private ParticleDisplay getDisplay() {

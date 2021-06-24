@@ -808,7 +808,8 @@ public enum ParticleEffect {
             display = ParticleDisplay.newInstance();
         }
 
-        display.display(particle, center, offsetX, offsetY, offsetZ, speed, amount, size, color, material, materialData, range, targetPlayers);
+        ParticleOptions options = new ParticleOptions(offsetX, offsetY, offsetZ, speed, amount, size, color, material, materialData);
+        display.display(particle, options, center, range, targetPlayers);
     }
 
     /**
