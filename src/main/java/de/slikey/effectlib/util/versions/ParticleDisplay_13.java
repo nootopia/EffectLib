@@ -16,8 +16,7 @@ public class ParticleDisplay_13 extends ParticleDisplay {
     @Override
     public void display(Particle particle, ParticleOptions options, Location center, double range, List<Player> targetPlayers) {
         // Legacy colorizeable particles
-        Color color = options.color;
-        if (color != null && (particle == Particle.SPELL_MOB || particle == Particle.SPELL_MOB_AMBIENT)) {
+        if (options.color != null && (particle == Particle.SPELL_MOB || particle == Particle.SPELL_MOB_AMBIENT)) {
             displayLegacyColored(particle, options, center, range, targetPlayers);
             return;
         }
@@ -37,7 +36,7 @@ public class ParticleDisplay_13 extends ParticleDisplay {
         if (particle == Particle.REDSTONE) {
             // color is required for 1.13
             if (options.color == null) options.color = Color.RED;
-            options.data = new Particle.DustOptions(color, options.size);
+            options.data = new Particle.DustOptions(options.color, options.size);
         }
 
         spawnParticle(particle, options, center, range, targetPlayers);
