@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 9.2
+
+ - Add toColor properties on effects, used for dust particle color transitions in 1.17
+
 # 9.1
 
  - Fix issues with concurrent uses of the same EquationEffect

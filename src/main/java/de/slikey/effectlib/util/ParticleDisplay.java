@@ -82,10 +82,15 @@ public abstract class ParticleDisplay {
     public static ParticleDisplay newInstance() {
         ParticleDisplay display;
         try {
-           Particle.valueOf("SQUID_INK");
-           display = new ParticleDisplay_13();
-        } catch (Throwable not13) {
-           display = new ParticleDisplay_12();
+            Particle.valueOf("VIBRATION");
+            display = new ParticleDisplay_17();
+        } catch (Throwable not17) {
+            try {
+                Particle.valueOf("SQUID_INK");
+                display = new ParticleDisplay_13();
+            } catch (Throwable not13) {
+                display = new ParticleDisplay_12();
+            }
         }
         return display;
     }
