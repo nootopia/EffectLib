@@ -466,6 +466,14 @@ public class EffectManager implements Disposable {
                 double y = pieces.length > 1 ? Double.parseDouble(pieces[1]) : 0;
                 double z = pieces.length > 2 ? Double.parseDouble(pieces[2]) : 0;
                 field.set(effect, new Vector(x, y, z));
+            } else if (field.getType().equals(Particle.class)) {
+                String value = fieldSection.getString(fieldKey);
+                // Legacy conversions
+                if (!ParticleDisplay.hasColorTransition() && value.equalsIgnoreCase("DUST_COLOR_TRANSITION")) {
+                    value = "REDSTONE";
+                }
+                Particle particleValue = Particle.valueOf(value.toUpperCase());
+                field.set(effect, particleValue);
             } else if (field.getType().isEnum()) {
                 Class<Enum> enumType = (Class<Enum>)field.getType();
                 String value = fieldSection.getString(fieldKey);
