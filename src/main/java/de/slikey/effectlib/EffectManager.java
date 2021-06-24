@@ -89,8 +89,7 @@ public class EffectManager implements Disposable {
         getDisplay().display(particle, options, center, range, targetPlayers);
     }
 
-    public void display(Particle particle, Location center, float offsetX, float offsetY, float offsetZ, float speed, int amount, float size, Color color, Color toColor, Material material, byte materialData, double range, List<Player> targetPlayers) {
-        ParticleOptions options = new ParticleOptions(offsetX, offsetY, offsetZ, speed, amount, size, color, toColor, material, materialData);
+    public void display(Particle particle, ParticleOptions options, Location center, double range, List<Player> targetPlayers) {
         getDisplay().display(particle, options, center, range, targetPlayers);
     }
 

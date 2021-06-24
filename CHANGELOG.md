@@ -3,6 +3,7 @@
 # 9.2
 
  - Add toColor properties on effects, used for dust particle color transitions in 1.17
+ - Add arrivalTime property, support 1.17 vibration particles
 
 # 9.1
 

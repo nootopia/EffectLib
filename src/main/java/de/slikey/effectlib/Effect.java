@@ -13,6 +13,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.configuration.ConfigurationSection;
 
+import de.slikey.effectlib.util.ParticleOptions;
 import de.slikey.effectlib.util.RandomUtils;
 import de.slikey.effectlib.util.DynamicLocation;
 
@@ -48,6 +49,11 @@ public abstract class Effect implements Runnable {
 
     public List<Color> toColorList = null;
     public String toColors = null;
+
+    /**
+     * Used only by the vibration particle in 1.17 and up
+     */
+    public int arrivalTime;
 
     /**
      * This can be used to give particles a set speed when spawned.
@@ -474,8 +480,9 @@ public abstract class Effect implements Runnable {
                 currentToColor = toColorList.get(ThreadLocalRandom.current().nextInt(colorList.size()));
             }
 
-            effectManager.display(particle, location, particleOffsetX, particleOffsetY, particleOffsetZ, speed, amount,
-                    particleSize, currentColor, currentToColor, material, materialData, visibleRange, targetPlayers);
+            ParticleOptions options = new ParticleOptions(particleOffsetX, particleOffsetY, particleOffsetZ, speed, amount, particleSize, currentColor, currentToColor, arrivalTime, material, materialData);
+            options.target = target;
+            effectManager.display(particle, options, location, visibleRange, targetPlayers);
         }
 
         if (subEffectClass != null) effectManager.start(subEffectClass, subEffect, location);

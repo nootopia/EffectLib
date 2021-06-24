@@ -6,6 +6,8 @@ import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
+import org.bukkit.Vibration;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
 import de.slikey.effectlib.util.ParticleDisplay;
@@ -44,6 +46,25 @@ public class ParticleDisplay_17 extends ParticleDisplay {
             if (options.color == null) options.color = Color.RED;
             if (options.toColor == null) options.toColor = options.color;
             options.data = new Particle.DustTransition(options.color, options.toColor, options.size);
+        }
+
+        if (particle == Particle.VIBRATION) {
+            if (options.target == null) {
+                return;
+            }
+            Vibration.Destination destination;
+            Entity targetEntity = options.target.getEntity();
+            if (targetEntity != null) {
+                destination = new Vibration.Destination.EntityDestination(targetEntity);
+            } else {
+                Location targetLocation = options.target.getLocation();
+                if (targetLocation == null) {
+                    return;
+                }
+                destination = new Vibration.Destination.BlockDestination(targetLocation);
+            }
+
+            options.data = new Vibration(center, destination, options.arrivalTime);
         }
 
         spawnParticle(particle, options, center, range, targetPlayers);
