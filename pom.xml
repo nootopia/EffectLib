@@ -63,6 +63,12 @@
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
+
+        <!-- TODO: Remove this on next release, make sure to release exp4j fork as well -->
+        <repository>
+            <id>elMakers</id>
+            <url>https://maven.elmakers.com/repository/</url>
+        </repository>
     </repositories>
 
     <dependencies>
