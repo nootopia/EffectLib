@@ -63,12 +63,6 @@
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
-
-        <!-- TODO: Remove this on next release, make sure to release exp4j fork as well -->
-        <repository>
-            <id>elMakers</id>
-            <url>https://maven.elmakers.com/repository/</url>
-        </repository>
     </repositories>
 
     <dependencies>
@@ -83,9 +77,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.elmakers</groupId>
+            <groupId>com.elmakers.math</groupId>
             <artifactId>exp4j</artifactId>
-            <version>0.5-SNAPSHOT</version>
+            <version>1.0</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
@@ -129,7 +123,7 @@
                             </relocations>
                             <filters>
                                 <filter>
-                                    <artifact>com.elmakers:exp4j</artifact>
+                                    <artifact>com.elmakers.math:exp4j</artifact>
                                     <excludes>
                                         <exclude>META-INF/MANIFEST.MF</exclude>
                                     </excludes>
