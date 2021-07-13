@@ -1,5 +1,10 @@
 # CHANGELOG
 
+# 9.3
+
+ - Add EffectManager.ignorePlayer() interface, for turning off particles
+   for specific players.
+
 # 9.2
 
  - Add toColor properties on effects, used for dust particle color transitions in 1.17

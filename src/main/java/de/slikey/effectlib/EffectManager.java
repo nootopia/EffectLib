@@ -1,6 +1,7 @@
 package de.slikey.effectlib;
 
 import java.io.File;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.awt.Font;
@@ -10,6 +11,7 @@ import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.lang.reflect.Field;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.awt.image.BufferedImage;
 import java.lang.reflect.Constructor;
@@ -61,6 +63,7 @@ public class EffectManager implements Disposable {
     private int visibleRange = 32;
     private File imageCacheFolder;
     private Map<String, BufferedImage[]> imageCache;
+    private final Set<UUID> ignoredPlayers = new HashSet<>();
 
     public EffectManager(Plugin owningPlugin) {
         this(owningPlugin, owningPlugin.getLogger());
@@ -541,4 +544,15 @@ public class EffectManager implements Disposable {
         effectClasses.put(key, effectClass);
     }
 
+    public boolean isPlayerIgnored(Player player) {
+        return ignoredPlayers.contains(player.getUniqueId());
+    }
+
+    public void ignorePlayer(Player player, boolean ignore) {
+        if (ignore) {
+            ignoredPlayers.add(player.getUniqueId());
+        } else {
+            ignoredPlayers.remove(player.getUniqueId());
+        }
+    }
 }

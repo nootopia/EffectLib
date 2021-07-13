@@ -29,11 +29,15 @@ public abstract class ParticleDisplay {
                     if (player.getWorld() != center.getWorld() || player.getLocation().distanceSquared(center) > squared) {
                         continue;
                     }
-                    player.spawnParticle(particle, center, options.amount, options.offsetX, options.offsetY, options.offsetZ, options.speed, options.data);
+                    if (!manager.isPlayerIgnored(player)) {
+                        player.spawnParticle(particle, center, options.amount, options.offsetX, options.offsetY, options.offsetZ, options.speed, options.data);
+                    }
                 }
             } else {
                 for (Player player : targetPlayers) {
-                    player.spawnParticle(particle, center, options.amount, options.offsetX, options.offsetY, options.offsetZ, options.speed, options.data);
+                    if (!manager.isPlayerIgnored(player)) {
+                        player.spawnParticle(particle, center, options.amount, options.offsetX, options.offsetY, options.offsetZ, options.speed, options.data);
+                    }
                 }
             }
         } catch (Exception ex) {
