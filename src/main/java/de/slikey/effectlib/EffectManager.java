@@ -377,6 +377,7 @@ public class EffectManager implements Disposable {
 
     protected boolean setField(Object effect, String key, ConfigurationSection section, ConfigurationSection parameterMap, String logContext) {
         try {
+            logContext = logContext == null ? "(?)" : logContext;
             String stringValue = section.getString(key);
             String fieldKey = key;
 
