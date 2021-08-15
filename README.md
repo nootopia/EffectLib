@@ -56,16 +56,26 @@ Then finally add the Maven shade plugin:
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.0.0</version>
+                <version>3.3.0-SNAPSHOT</version>
                 <configuration>
                     <minimizeJar>false</minimizeJar>
                     <dependencyReducedPomLocation>${project.build.directory}/dependency-reduced-pom.xml</dependencyReducedPomLocation>
                     <relocations>
+                        <!-- Other relocations can go here, e.g. bstats -->
                         <relocation>
                             <pattern>de.slikey</pattern>
-                            <shadedPattern>com.your.own.package.slikey</shadedPattern>
+                            <shadedPattern>my.own.plugin.namespace.slikey</shadedPattern>
                         </relocation>
                     </relocations>
+                    <filters>
+                        <filter>
+                            <artifact>com.elmakers.mine.bukkit:EffectLib</artifact>
+                            <excludes>
+                                <exclude>plugin.yml</exclude>
+                                <exclude>META-INF/MANIFEST.MF</exclude>
+                            </excludes>
+                        </filter>
+                    </filters>
                 </configuration>
                 <executions>
                     <execution>
