@@ -49,6 +49,12 @@ public class LineEffect extends Effect {
     public double length = 0;
 
     /**
+     * Max length of arc
+     * A non-zero value here will use this as the upper bound for the computed length
+     */
+    public double maxLength = 0;
+
+    /**
      * Sub effect at end.
      * This will play a subeffect at the end location of the line
      */
@@ -109,6 +115,9 @@ public class LineEffect extends Effect {
         }
         Vector link = target.toVector().subtract(location.toVector());
         float length = (float) link.length();
+        if (maxLength > 0) {
+            length = (float)Math.min(length, maxLength);
+        }
         link.normalize();
 
         float ratio = length / particles;
