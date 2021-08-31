@@ -1,5 +1,10 @@
 # CHANGELOG
 
+
+# 9.4
+
+ - Add maxLength parameter to LineEffect
+
 # 9.3
 
  - Add EffectManager.ignorePlayer() interface, for turning off particles
