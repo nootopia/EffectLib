@@ -31,7 +31,11 @@ public class ParticleDisplay_17 extends ParticleDisplay {
         if (particle == Particle.BLOCK_CRACK || particle == Particle.BLOCK_DUST || particle == Particle.FALLING_DUST) {
             Material material = options.material;
             if (material == null || material.name().contains("AIR")) return;
-            options.data = material.createBlockData();
+            try {
+                options.data = material.createBlockData();
+            } catch (Exception ex) {
+                manager.onError("Error creating block data for " + material, ex);
+            }
             if (options.data == null) return;
         }
 

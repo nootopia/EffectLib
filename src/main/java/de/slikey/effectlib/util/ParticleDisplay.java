@@ -16,7 +16,7 @@ import de.slikey.effectlib.util.versions.ParticleDisplay_13;
 import de.slikey.effectlib.util.versions.ParticleDisplay_17;
 
 public abstract class ParticleDisplay {
-    private EffectManager manager;
+    protected EffectManager manager;
     private static boolean hasColorTransition = false;
 
     public abstract void display(Particle particle, ParticleOptions options, Location center, double range, List<Player> targetPlayers);
