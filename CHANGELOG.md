@@ -4,6 +4,7 @@
 # 9.4
 
  - Add maxLength parameter to LineEffect
+ - Add prob(p, x, y) function to equation parser, returns x if a random 0-1 draw < p, else returns y
 
 # 9.3
 

@@ -16,6 +16,7 @@ public class EquationTransform implements Transform, VariableProvider {
 
     private Expression expression;
     private static Function randFunction;
+    private static Function probabilityFunction;
     private static Function minFunction;
     private static Function maxFunction;
     private static Function selectFunction;
@@ -56,42 +57,52 @@ public class EquationTransform implements Transform, VariableProvider {
     }
 
     private void checkCustomFunctions() {
-            if (randFunction == null) {
-                randFunction = new Function("rand", 2) {
-                    private Random random = new Random();
+        if (randFunction == null) {
+            randFunction = new Function("rand", 2) {
+                private Random random = new Random();
 
-                    @Override
-                    public double apply(double... args) {
-                        return random.nextDouble() * (args[1] - args[0]) + args[0];
-                    }
-                };
-            }
-            if (minFunction == null) {
-                minFunction = new Function("min", 2) {
-                    @Override
-                    public double apply(double... args) {
-                        return Math.min(args[0], args[1]);
-                    }
-                };
-            }
-            if (maxFunction == null) {
-                maxFunction = new Function("max", 2) {
-                    @Override
-                    public double apply(double... args) {
-                        return Math.max(args[0], args[1]);
-                    }
-                };
-            }
-            if (selectFunction == null) {
-                selectFunction = new Function("select", 4) {
-                    @Override
-                    public double apply(double... args) {
-                        if (args[0] < 0) return args[1];
-                        else if (args[0] == 0) return args[2];
-                        return args[3];
-                    }
-                };
-            }
+                @Override
+                public double apply(double... args) {
+                    return random.nextDouble() * (args[1] - args[0]) + args[0];
+                }
+            };
+        }
+        if (probabilityFunction == null) {
+            probabilityFunction = new Function("prob", 3) {
+                private Random random = new Random();
+
+                @Override
+                public double apply(double... args) {
+                    return random.nextDouble() < args[0] ? args[1] : args[2];
+                }
+            };
+        }
+        if (minFunction == null) {
+            minFunction = new Function("min", 2) {
+                @Override
+                public double apply(double... args) {
+                    return Math.min(args[0], args[1]);
+                }
+            };
+        }
+        if (maxFunction == null) {
+            maxFunction = new Function("max", 2) {
+                @Override
+                public double apply(double... args) {
+                    return Math.max(args[0], args[1]);
+                }
+            };
+        }
+        if (selectFunction == null) {
+            selectFunction = new Function("select", 4) {
+                @Override
+                public double apply(double... args) {
+                    if (args[0] < 0) return args[1];
+                    else if (args[0] == 0) return args[2];
+                    return args[3];
+                }
+            };
+        }
     }
 
     public boolean setEquation(String equation) {
@@ -100,6 +111,7 @@ public class EquationTransform implements Transform, VariableProvider {
             exception = null;
             expression = new ExpressionBuilder(equation)
                 .function(randFunction)
+                .function(probabilityFunction)
                 .function(minFunction)
                 .function(maxFunction)
                 .function(selectFunction)
