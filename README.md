@@ -41,7 +41,7 @@ Then add the EffectLib dependency:
         <dependency>
             <groupId>com.elmakers.mine.bukkit</groupId>
             <artifactId>EffectLib</artifactId>
-            <version>9.3</version>
+            <version>9.4</version>
             <scope>compile</scope>
         </dependency>
 
@@ -96,7 +96,7 @@ Make sure to change the "shadedPattern" to match the base package of your own pl
 To use EffectLib via gradle just add
 
 ```
-implementation 'com.elmakers.mine.bukkit:EffectLib:9.3'
+implementation 'com.elmakers.mine.bukkit:EffectLib:9.4'
 ```
 
 To your build.gradle file, remember to change version to the latest version, you can find the latest version in the maven area above.
