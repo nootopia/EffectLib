@@ -1,5 +1,7 @@
 # CHANGELOG
 
+# 9.5
+
 # 9.4
 
  - Add maxLength parameter to LineEffect
