@@ -273,20 +273,27 @@ public class EffectManager implements Disposable {
     }
     
     public void cancel(boolean callback) {
-        List<Effect> allEffects = new ArrayList<>(effects.keySet());
-        for (Effect effect : allEffects) {
-            effect.cancel(callback);
+        synchronized (this) {
+            if (effects == null) return;
+            List<Effect> allEffects = new ArrayList<>(effects.keySet());
+            for (Effect effect : allEffects) {
+                effect.cancel(callback);
+            }
         }
     }
 
     public void done(Effect effect) {
-        removeEffect(effect);
-        if (effect.callback != null && owningPlugin.isEnabled()) Bukkit.getScheduler().runTask(owningPlugin, effect.callback);
-        if (disposeOnTermination && effects.isEmpty()) dispose();
+        synchronized (this) {
+            removeEffect(effect);
+            if (effect.callback != null && owningPlugin.isEnabled())
+                Bukkit.getScheduler().runTask(owningPlugin, effect.callback);
+            if (disposeOnTermination && effects != null && effects.isEmpty()) dispose();
+        }
     }
 
     public void removeEffect(Effect effect) {
         synchronized (this) {
+            if (effects == null) return;
             BukkitTask existingTask = effects.get(effect);
             if (existingTask != null) existingTask.cancel();
             effects.remove(effect);
@@ -295,22 +302,26 @@ public class EffectManager implements Disposable {
 
     @Override
     public void dispose() {
-        if (disposed) return;
-        disposed = true;
-        cancel(false);
-        effects = null;
-        owningPlugin = null;
-        logger = null;
-        display = null;
-        imageCache = null;
-        owningPlugin = null;
-        imageCacheFolder = null;
-        effectManagers.remove(this);
+        synchronized (this) {
+            if (disposed) return;
+            disposed = true;
+            cancel(false);
+            effects = null;
+            owningPlugin = null;
+            logger = null;
+            display = null;
+            imageCache = null;
+            owningPlugin = null;
+            imageCacheFolder = null;
+            effectManagers.remove(this);
+        }
     }
 
     public void disposeOnTermination() {
-        disposeOnTermination = true;
-        if (effects.isEmpty()) dispose();
+        synchronized (this) {
+            disposeOnTermination = true;
+            if (effects != null && effects.isEmpty()) dispose();
+        }
     }
 
     public boolean isDisposed() {

@@ -2,6 +2,8 @@
 
 # 9.5
 
+ - Add some protection against double-disposing of effects and/or effect managers
+
 # 9.4
 
  - Add maxLength parameter to LineEffect
