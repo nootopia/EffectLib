@@ -15,12 +15,24 @@ public final class RandomUtils {
     }
 
     public static Vector getRandomVector() {
-        double x, y, z;
-        x = random.nextDouble() * 2 - 1;
-        y = random.nextDouble() * 2 - 1;
-        z = random.nextDouble() * 2 - 1;
+        double u = random.nextDouble();
+        double v = random.nextDouble();
 
-        return new Vector(x, y, z).normalize();
+        double theta = u * 2 * Math.PI;
+        double phi = Math.acos(2 * v - 1);
+
+        double sinTheta = Math.sin(theta);
+        double cosTheta = Math.cos(theta);
+        double sinPhi = Math.sin(phi);
+        double cosPhi = Math.cos(phi);
+
+        double x = sinPhi * cosTheta;
+        double y = sinPhi * sinTheta;
+        double z = cosPhi;
+
+        // Going to take it on faith from the math gods that
+        // this is always a normal vector
+        return new Vector(x, y, z);
     }
 
     public static Vector getRandomFlatVector() {
