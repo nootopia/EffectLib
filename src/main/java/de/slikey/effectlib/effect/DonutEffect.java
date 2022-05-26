@@ -1,6 +1,5 @@
 package de.slikey.effectlib.effect;
 
-import org.bukkit.Particle;
 import org.bukkit.Location;
 import org.bukkit.util.Vector;
 
@@ -11,11 +10,6 @@ import de.slikey.effectlib.util.MathUtils;
 import de.slikey.effectlib.util.VectorUtils;
 
 public class DonutEffect extends Effect {
-
-    /**
-     * ParticleType of spawned particle
-     */
-    public Particle particle = Particle.FLAME;
 
     /**
      * Amount of particles inside of a single vertical circle
@@ -35,7 +29,7 @@ public class DonutEffect extends Effect {
     /**
      * Radius of the tube (the circles on the outside).
      */
-    public float radiusTube = .5f;
+    public float radiusTube = 0.5F;
 
     /**
      * Rotation of the torus.
@@ -53,11 +47,16 @@ public class DonutEffect extends Effect {
     public void onRun() {
         Location location = getLocation();
         Vector v = new Vector();
+
+        double theta;
+        double phi;
+        double cosPhi;
+
         for (int i = 0; i < circles; i++) {
-            double theta = 2 * Math.PI * i / circles;
+            theta = 2 * Math.PI * i / circles;
             for (int j = 0; j < particlesCircle; j++) {
-                double phi = 2 * Math.PI * j / particlesCircle;
-                double cosPhi = Math.cos(phi);
+                phi = 2 * Math.PI * j / particlesCircle;
+                cosPhi = Math.cos(phi);
                 v.setX((radiusDonut + radiusTube * cosPhi) * Math.cos(theta));
                 v.setY((radiusDonut + radiusTube * cosPhi) * Math.sin(theta));
                 v.setZ(radiusTube * Math.sin(phi));

@@ -1,8 +1,8 @@
 package de.slikey.effectlib.effect;
 
 import de.slikey.effectlib.Effect;
-import de.slikey.effectlib.EffectManager;
 import de.slikey.effectlib.EffectType;
+import de.slikey.effectlib.EffectManager;
 import de.slikey.effectlib.util.CustomSound;
 
 public class SoundEffect extends Effect {
