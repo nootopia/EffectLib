@@ -102,26 +102,31 @@ public class CircleEffect extends Effect {
         double inc = maxAngle / particles;
         int steps = wholeCircle ? particles : 1;
 
+        double angle;
+        Vector v;
+
         for (int i = 0; i < steps; i++) {
-            double angle = step * inc;
-            Vector v = new Vector();
+            angle = step * inc;
+            v = new Vector();
+
             v.setX(Math.cos(angle) * radius);
             v.setZ(Math.sin(angle) * radius);
+
             VectorUtils.rotateVector(v, xRotation, yRotation, zRotation);
             VectorUtils.rotateAroundAxisX(v, location.getPitch() * MathUtils.degreesToRadians);
             VectorUtils.rotateAroundAxisY(v, -location.getYaw() * MathUtils.degreesToRadians);
+
             if (enableRotation) {
                 VectorUtils.rotateVector(v, angularVelocityX * step, angularVelocityY * step, angularVelocityZ * step);
             }
-            if (orient) {
-                v = VectorUtils.rotateVector(v, location);
-            }
+
+            if (orient) v = VectorUtils.rotateVector(v, location);
+
             display(particle, location.clone().add(v));
             step++;
         }
-        if (resetCircle) {
-            step = 0;
-        }
+
+        if (resetCircle) step = 0;
     }
 
 }

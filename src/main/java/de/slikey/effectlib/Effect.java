@@ -11,11 +11,12 @@ import org.bukkit.Location;
 import org.bukkit.util.Vector;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
+import org.bukkit.block.data.BlockData;
 import org.bukkit.configuration.ConfigurationSection;
 
-import de.slikey.effectlib.util.ParticleOptions;
 import de.slikey.effectlib.util.RandomUtils;
 import de.slikey.effectlib.util.DynamicLocation;
+import de.slikey.effectlib.util.ParticleOptions;
 
 public abstract class Effect implements Runnable {
 
@@ -173,6 +174,10 @@ public abstract class Effect implements Runnable {
     public Material material;
     public byte materialData;
 
+    public BlockData blockData;
+
+    public long blockDuration;
+
     /**
      * These can be used to spawn multiple particles per packet.
      * It will not work with colored particles, however.
@@ -280,8 +285,7 @@ public abstract class Effect implements Runnable {
     /**
      * Called when this effect is done playing (when {@link #done()} is called).
      */
-    public void onDone() {
-    }
+    public void onDone() { }
 
     @Override
     public final void run() {
@@ -289,6 +293,7 @@ public abstract class Effect implements Runnable {
             cancel();
             return;
         }
+
         if (done) {
             effectManager.removeEffect(this);
             return;
@@ -480,8 +485,9 @@ public abstract class Effect implements Runnable {
                 currentToColor = toColorList.get(ThreadLocalRandom.current().nextInt(colorList.size()));
             }
 
-            ParticleOptions options = new ParticleOptions(particleOffsetX, particleOffsetY, particleOffsetZ, speed, amount, particleSize, currentColor, currentToColor, arrivalTime, material, materialData);
+            ParticleOptions options = new ParticleOptions(particleOffsetX, particleOffsetY, particleOffsetZ, speed, amount, particleSize, currentColor, currentToColor, arrivalTime, material, materialData, blockData, blockDuration);
             options.target = target;
+
             effectManager.display(particle, options, location, visibleRange, targetPlayers);
         }
 
@@ -542,7 +548,6 @@ public abstract class Effect implements Runnable {
         this.startTime = startTime;
     }
 
-    public void reloadParameters() {
+    public void reloadParameters() { }
 
-    }
 }
