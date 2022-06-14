@@ -69,6 +69,11 @@ public class ParticleDisplay_19 extends ParticleDisplay {
 
 		if (particle == Particle.SHRIEK) {
 			if (options.shriekDelay < 0) options.shriekDelay = 0;
+			options.data = options.shriekDelay;
+		}
+
+		if (particle == Particle.SCULK_CHARGE) {
+			options.data = options.sculkChargeRotation;
 		}
 
 		spawnParticle(particle, options, center, range, targetPlayers);
