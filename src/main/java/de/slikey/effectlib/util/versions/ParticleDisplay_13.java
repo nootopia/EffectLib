@@ -45,4 +45,5 @@ public class ParticleDisplay_13 extends ParticleDisplay {
 
         spawnParticle(particle, options, center, range, targetPlayers);
     }
+
 }

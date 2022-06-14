@@ -57,6 +57,16 @@ public abstract class Effect implements Runnable {
     public String toColors = null;
 
     /**
+     * Used only by the shriek particle in 1.19 and up
+     */
+    public int shriekDelay;
+
+    /**
+     * Used only by the sculk_charge particle in 1.19 and up
+     */
+    public float sculkChargeRotation;
+
+    /**
      * Used only by the vibration particle in 1.17 and up
      */
     public int arrivalTime;
@@ -490,7 +500,7 @@ public abstract class Effect implements Runnable {
                 currentToColor = toColorList.get(ThreadLocalRandom.current().nextInt(colorList.size()));
             }
 
-            ParticleOptions options = new ParticleOptions(particleOffsetX, particleOffsetY, particleOffsetZ, speed, amount, particleSize, currentColor, currentToColor, arrivalTime, material, materialData, blockData, blockDuration);
+            ParticleOptions options = new ParticleOptions(particleOffsetX, particleOffsetY, particleOffsetZ, speed, amount, particleSize, currentColor, currentToColor, arrivalTime, material, materialData, blockData, blockDuration, shriekDelay, sculkChargeRotation);
             options.target = target;
 
             effectManager.display(particle, options, location, visibleRange, targetPlayers);

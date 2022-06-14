@@ -14,9 +14,12 @@ import de.slikey.effectlib.EffectManager;
 import de.slikey.effectlib.util.versions.ParticleDisplay_12;
 import de.slikey.effectlib.util.versions.ParticleDisplay_13;
 import de.slikey.effectlib.util.versions.ParticleDisplay_17;
+import de.slikey.effectlib.util.versions.ParticleDisplay_19;
 
 public abstract class ParticleDisplay {
+
     protected EffectManager manager;
+
     private static boolean hasColorTransition = false;
 
     public abstract void display(Particle particle, ParticleOptions options, Location center, double range, List<Player> targetPlayers);
@@ -100,18 +103,26 @@ public abstract class ParticleDisplay {
 
     public static ParticleDisplay newInstance() {
         ParticleDisplay display;
+
         try {
-            Particle.valueOf("VIBRATION");
-            display = new ParticleDisplay_17();
+            Particle.valueOf("SHRIEK");
+            display = new ParticleDisplay_19();
             hasColorTransition = true;
-        } catch (Throwable not17) {
+        } catch (Throwable not19) {
             try {
-                Particle.valueOf("SQUID_INK");
-                display = new ParticleDisplay_13();
-            } catch (Throwable not13) {
-                display = new ParticleDisplay_12();
+                Particle.valueOf("VIBRATION");
+                display = new ParticleDisplay_17();
+                hasColorTransition = true;
+            } catch (Throwable not17) {
+                try {
+                    Particle.valueOf("SQUID_INK");
+                    display = new ParticleDisplay_13();
+                } catch (Throwable not13) {
+                    display = new ParticleDisplay_12();
+                }
             }
         }
+
         return display;
     }
 

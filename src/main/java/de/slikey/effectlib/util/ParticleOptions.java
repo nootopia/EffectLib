@@ -28,6 +28,9 @@ public class ParticleOptions {
 
     public DynamicLocation target;
 
+    public int shriekDelay;
+    public float sculkChargeRotation;
+
     public ParticleOptions() {
 
     }
@@ -44,7 +47,7 @@ public class ParticleOptions {
         this.materialData = materialData;
     }
 
-    public ParticleOptions(float offsetX, float offsetY, float offsetZ, float speed, int amount, float size, Color color, Color toColor, int arrivalTime, Material material, byte materialData, BlockData blockData, long blockDuration) {
+    public ParticleOptions(float offsetX, float offsetY, float offsetZ, float speed, int amount, float size, Color color, Color toColor, int arrivalTime, Material material, byte materialData, BlockData blockData, long blockDuration, int shriekDelay, float sculkChargeRotation) {
         this.offsetX = offsetX;
         this.offsetY = offsetY;
         this.offsetZ = offsetZ;
@@ -58,6 +61,8 @@ public class ParticleOptions {
         this.arrivalTime = arrivalTime;
         this.blockData = blockData;
         this.blockDuration = blockDuration;
+        this.shriekDelay = shriekDelay;
+        this.sculkChargeRotation = sculkChargeRotation;
     }
 
 }
