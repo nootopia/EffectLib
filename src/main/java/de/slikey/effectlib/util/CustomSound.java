@@ -1,16 +1,17 @@
 package de.slikey.effectlib.util;
 
-import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.lang.reflect.Method;
 
-import org.apache.commons.lang.StringUtils;
-import org.bukkit.Location;
 import org.bukkit.Sound;
+import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class CustomSound {
     private static boolean initializedReflection;
