@@ -22,11 +22,11 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
-import org.bukkit.block.data.BlockData;
 import org.bukkit.util.Vector;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.block.data.BlockData;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.scheduler.BukkitScheduler;
 import org.bukkit.configuration.MemoryConfiguration;
@@ -435,9 +435,9 @@ public class EffectManager implements Disposable {
                 String value = fieldSection.getString(fieldKey);
                 int rgb;
                 if (value.equalsIgnoreCase("random")) {
-                    byte red = (byte)(Math.random() * 255);
-                    byte green = (byte)(Math.random() * 255);
-                    byte blue = (byte)(Math.random() * 255);
+                    byte red = (byte) (Math.random() * 255);
+                    byte green = (byte) (Math.random() * 255);
+                    byte blue = (byte) (Math.random() * 255);
                     rgb = (red << 16) | (green << 8) | blue;
                 } else {
                     if (value.startsWith("#")) value = value.substring(1);

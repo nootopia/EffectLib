@@ -9,6 +9,7 @@ public class SoundEffect extends Effect {
 
     /**
      * Sound effect to play
+     * Format: <soundName>,<volume>,<pitch>,<range>
      */
     public CustomSound sound;
 
@@ -21,8 +22,8 @@ public class SoundEffect extends Effect {
 
     @Override
     public void onRun() {
-		if (sound == null) return;
-		sound.play(effectManager.getOwningPlugin(), getLocation());
+        if (sound == null) return;
+        sound.play(effectManager.getOwningPlugin(), getLocation());
     }
 
 }
