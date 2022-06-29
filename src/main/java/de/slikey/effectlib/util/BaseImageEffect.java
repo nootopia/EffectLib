@@ -113,8 +113,8 @@ public abstract class BaseImageEffect extends Effect {
     }
 
     @Override
-    public void prepare() {
-        super.prepare();
+    protected void initialize() {
+        super.initialize();
         load(fileName);
     }
 
