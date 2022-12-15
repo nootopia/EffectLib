@@ -2,7 +2,6 @@ package de.slikey.effectlib.effect;
 
 import java.util.Random;
 
-import org.bukkit.Particle;
 import org.bukkit.Location;
 import org.bukkit.util.Vector;
 
@@ -14,11 +13,6 @@ import de.slikey.effectlib.util.RandomUtils;
 import de.slikey.effectlib.util.VectorUtils;
 
 public class CylinderEffect extends Effect {
-
-    /**
-     * Particle of the cube
-     */
-    public Particle particle = Particle.FLAME;
 
     /**
      * Radius of cylinder
@@ -100,18 +94,24 @@ public class CylinderEffect extends Effect {
 
         Random r = RandomUtils.random;
         double xRotation = rotationX, yRotation = rotationY, zRotation = rotationZ;
+
         if (orient) {
             xRotation = Math.toRadians(90 - location.getPitch()) + rotationX;
             yRotation = Math.toRadians(180 - location.getYaw()) + rotationY;
         }
+
         if (enableRotation) {
             xRotation += step * angularVelocityX;
             yRotation += step * angularVelocityY;
             zRotation += step * angularVelocityZ;
         }
+
+        float multi;
+        Vector v;
+
         for (int i = 0; i < particles; i++) {
-            float multi = (solid) ? r.nextFloat() : 1;
-            Vector v = RandomUtils.getRandomCircleVector().multiply(radius);
+            multi = (solid) ? r.nextFloat() : 1;
+            v = RandomUtils.getRandomCircleVector().multiply(radius);
             if (r.nextFloat() <= sideRatio) {
                 // SIDE PARTICLE
                 v.multiply(multi);
@@ -127,9 +127,8 @@ public class CylinderEffect extends Effect {
                     v.setY(-multi * (height / 2));
                 }
             }
-            if (enableRotation || orient) {
-                VectorUtils.rotateVector(v, xRotation, yRotation, zRotation);
-            }
+            if (enableRotation || orient) VectorUtils.rotateVector(v, xRotation, yRotation, zRotation);
+
             display(particle, location.add(v));
             location.subtract(v);
         }

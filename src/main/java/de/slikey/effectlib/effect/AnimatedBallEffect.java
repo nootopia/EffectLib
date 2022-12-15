@@ -1,6 +1,5 @@
 package de.slikey.effectlib.effect;
 
-import org.bukkit.Particle;
 import org.bukkit.Location;
 import org.bukkit.util.Vector;
 
@@ -17,11 +16,6 @@ import de.slikey.effectlib.util.VectorUtils;
  * @author <a href="http://forums.bukkit.org/members/qukie.90952701/">Qukie</a>
  */
 public class AnimatedBallEffect extends Effect {
-
-    /**
-     * ParticleType of spawned particle
-     */
-    public Particle particle = Particle.SPELL_WITCH;
 
     /**
      * Ball particles total (150)
@@ -74,12 +68,17 @@ public class AnimatedBallEffect extends Effect {
     public void onRun() {
         Vector vector = new Vector();
         Location location = getLocation();
+
+        float t;
+        float r;
+        float s;
+
         for (int i = 0; i < particlesPerIteration; i++) {
             step++;
 
-            float t = (MathUtils.PI / particles) * step;
-            float r = MathUtils.sin(t) * size;
-            float s = 2 * MathUtils.PI * t;
+            t = (MathUtils.PI / particles) * step;
+            r = MathUtils.sin(t) * size;
+            s = 2 * MathUtils.PI * t;
 
             vector.setX(xFactor * r * MathUtils.cos(s) + xOffset);
             vector.setZ(zFactor * r * MathUtils.sin(s) + zOffset);
