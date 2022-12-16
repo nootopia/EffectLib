@@ -244,6 +244,8 @@ public abstract class Effect implements Runnable {
 
     private boolean done = false;
 
+    private boolean playing = false;
+
     private long startTime;
 
     public Effect(EffectManager effectManager) {
@@ -293,6 +295,10 @@ public abstract class Effect implements Runnable {
 
     public final boolean isDone() {
         return done;
+    }
+
+    public boolean isPlaying() {
+        return playing;
     }
 
     public abstract void onRun();
@@ -348,6 +354,7 @@ public abstract class Effect implements Runnable {
     public final void start() {
         prepare();
         effectManager.start(this);
+        playing = true;
     }
 
     public final void infinite() {
@@ -510,6 +517,7 @@ public abstract class Effect implements Runnable {
     }
 
     private void done() {
+        playing = false;
         done = true;
         effectManager.done(this);
         onDone();
