@@ -32,16 +32,9 @@ import org.bukkit.scheduler.BukkitScheduler;
 import org.bukkit.configuration.MemoryConfiguration;
 import org.bukkit.configuration.ConfigurationSection;
 
-import de.slikey.effectlib.util.Disposable;
-import de.slikey.effectlib.util.ConfigUtils;
-import de.slikey.effectlib.util.CustomSound;
-import de.slikey.effectlib.util.ImageLoadTask;
-import de.slikey.effectlib.util.ParticleDisplay;
-import de.slikey.effectlib.util.ParticleOptions;
-import de.slikey.effectlib.util.DynamicLocation;
-import de.slikey.effectlib.util.ImageLoadCallback;
-
 import com.google.common.base.CaseFormat;
+
+import de.slikey.effectlib.util.*;
 
 /**
  * Dispose the EffectManager if you don't need it anymore.
@@ -484,7 +477,7 @@ public class EffectManager implements Disposable {
                 if (!ParticleDisplay.hasColorTransition() && value.equalsIgnoreCase("DUST_COLOR_TRANSITION")) {
                     value = "REDSTONE";
                 }
-                field.set(effect, Particle.valueOf(value.toUpperCase()));
+                field.set(effect, ParticleUtil.getParticle(value));
             } else if (field.getType().equals(BlockData.class)) {
                 String value = fieldSection.getString(fieldKey);
                 field.set(effect, Bukkit.createBlockData(value.toLowerCase()));

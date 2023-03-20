@@ -547,6 +547,14 @@ public abstract class Effect implements Runnable {
         setDynamicOrigin(new DynamicLocation(location));
     }
 
+    public DynamicLocation getDynamicOrigin() {
+        return origin;
+    }
+
+    public DynamicLocation getDynamicTarget() {
+        return target;
+    }
+
     public void setTargetEntity(Entity entity) {
         target = new DynamicLocation(entity);
     }
