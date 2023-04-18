@@ -1,5 +1,6 @@
 package de.slikey.effectlib.effect;
 
+import org.bukkit.Particle;
 import org.bukkit.Location;
 import org.bukkit.util.Vector;
 
@@ -15,6 +16,11 @@ public class CircleEffect extends Effect {
      * Whether or not to orient to the direction of the source location
      */
     public boolean orient = false;
+
+    /**
+     * ParticleType of spawned particle
+     */
+    public Particle particle = Particle.VILLAGER_HAPPY;
 
     /**
      * Rotation of the torus.

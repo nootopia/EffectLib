@@ -1,6 +1,7 @@
 package de.slikey.effectlib.effect;
 
 import org.bukkit.Location;
+import org.bukkit.Particle;
 
 import de.slikey.effectlib.Effect;
 import de.slikey.effectlib.EffectType;
@@ -17,6 +18,11 @@ public class WarpEffect extends Effect {
      * Particles per circle
      */
     public int particles = 20;
+
+    /**
+     * Particle to display
+     */
+    public Particle particle = Particle.FIREWORKS_SPARK;
 
     /**
      * Interval of the circles

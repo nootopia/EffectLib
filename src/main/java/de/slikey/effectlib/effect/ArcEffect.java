@@ -1,5 +1,6 @@
 package de.slikey.effectlib.effect;
 
+import org.bukkit.Particle;
 import org.bukkit.Location;
 import org.bukkit.util.Vector;
 
@@ -8,6 +9,11 @@ import de.slikey.effectlib.EffectType;
 import de.slikey.effectlib.EffectManager;
 
 public class ArcEffect extends Effect {
+
+    /**
+     * ParticleType of spawned particle
+     */
+    public Particle particle = Particle.FLAME;
 
     /**
      * Height of the arc in blocks

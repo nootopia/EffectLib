@@ -35,11 +35,6 @@ public abstract class Effect implements Runnable {
     public EffectType type = EffectType.INSTANT;
 
     /**
-     * ParticleType of spawned particle
-     */
-    public Particle particle = Particle.FLAME;
-
-    /**
      * Can be used to colorize certain particles. As of 1.8, those
      * include SPELL_MOB_AMBIENT, SPELL_MOB and REDSTONE.
      */

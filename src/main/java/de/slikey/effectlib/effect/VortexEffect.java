@@ -1,6 +1,7 @@
 package de.slikey.effectlib.effect;
 
 import org.bukkit.Location;
+import org.bukkit.Particle;
 import org.bukkit.util.Vector;
 
 import de.slikey.effectlib.Effect;
@@ -10,6 +11,11 @@ import de.slikey.effectlib.util.MathUtils;
 import de.slikey.effectlib.util.VectorUtils;
 
 public class VortexEffect extends Effect {
+
+    /**
+     * ParticleType of spawned particle
+     */
+    public Particle particle = Particle.FLAME;
 
     /**
      * Radius of vortex (2)

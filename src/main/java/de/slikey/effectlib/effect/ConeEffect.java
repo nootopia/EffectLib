@@ -1,5 +1,6 @@
 package de.slikey.effectlib.effect;
 
+import org.bukkit.Particle;
 import org.bukkit.Location;
 import org.bukkit.util.Vector;
 
@@ -11,6 +12,11 @@ import de.slikey.effectlib.util.RandomUtils;
 import de.slikey.effectlib.util.VectorUtils;
 
 public class ConeEffect extends Effect {
+
+    /**
+     * ParticleType of spawned particle
+     */
+    public Particle particle = Particle.FLAME;
 
     /**
      * Growing per iteration in the length (0.05)

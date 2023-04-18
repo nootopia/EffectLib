@@ -1,5 +1,6 @@
 package de.slikey.effectlib.effect;
 
+import org.bukkit.Particle;
 import org.bukkit.Location;
 import org.bukkit.util.Vector;
 
@@ -9,6 +10,9 @@ import de.slikey.effectlib.EffectManager;
 import de.slikey.effectlib.util.RandomUtils;
 
 public class SquareEffect extends Effect {
+
+	// Type of the spawned particles
+	public Particle particle = Particle.SPELL_MOB;
 
 	// Radius of the square
 	public double radius = 0.6;

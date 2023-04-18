@@ -61,7 +61,7 @@ public class TornadoEffect extends Effect {
     /*
      * Distance between each row
      */
-    public double distance = 0.375;
+    public double distance = .375d;
 
     /*
      * Number of particles per circle

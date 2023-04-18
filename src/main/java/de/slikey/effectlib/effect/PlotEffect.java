@@ -4,6 +4,7 @@ import java.util.Set;
 import java.util.Arrays;
 import java.util.HashSet;
 
+import org.bukkit.Particle;
 import org.bukkit.Location;
 
 import de.slikey.effectlib.Effect;
@@ -16,6 +17,11 @@ public class PlotEffect extends Effect {
 
     private final static String[] _variables = {"t", "i"};
     private final static Set<String> variables = new HashSet<>(Arrays.asList(_variables));
+
+    /**
+     * ParticleType of spawned particle
+     */
+    public Particle particle = Particle.REDSTONE;
 
     /**
      * The equation to use for x-values. If not set, the iteration count will be used.

@@ -1,6 +1,7 @@
 package de.slikey.effectlib.effect;
 
 import org.bukkit.Location;
+import org.bukkit.Particle;
 import org.bukkit.util.Vector;
 
 import de.slikey.effectlib.Effect;
@@ -8,6 +9,11 @@ import de.slikey.effectlib.EffectType;
 import de.slikey.effectlib.EffectManager;
 
 public class CuboidEffect extends Effect {
+
+    /**
+     * Particle of the cube
+     */
+    public Particle particle = Particle.FLAME;
 
     /**
      * Particles in each row

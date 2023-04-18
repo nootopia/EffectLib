@@ -1,5 +1,6 @@
 package de.slikey.effectlib.effect;
 
+import org.bukkit.Particle;
 import org.bukkit.Location;
 import org.bukkit.util.Vector;
 
@@ -10,6 +11,11 @@ import de.slikey.effectlib.util.MathUtils;
 import de.slikey.effectlib.util.VectorUtils;
 
 public class CubeEffect extends Effect {
+
+    /**
+     * Particle of the cube
+     */
+    public Particle particle = Particle.FLAME;
 
     /**
      * Length of the edges

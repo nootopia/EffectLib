@@ -1,5 +1,6 @@
 package de.slikey.effectlib.effect;
 
+import org.bukkit.Particle;
 import org.bukkit.Location;
 import org.bukkit.util.Vector;
 
@@ -16,6 +17,11 @@ import de.slikey.effectlib.util.VectorUtils;
  * @author <a href="http://forums.bukkit.org/members/qukie.90952701/">Qukie</a>
  */
 public class AnimatedBallEffect extends Effect {
+
+    /**
+     * ParticleType of spawned particle
+     */
+    public Particle particle = Particle.SPELL_WITCH;
 
     /**
      * Ball particles total (150)

@@ -2,6 +2,7 @@ package de.slikey.effectlib.effect;
 
 import java.util.Random;
 
+import org.bukkit.Particle;
 import org.bukkit.Location;
 import org.bukkit.util.Vector;
 
@@ -13,6 +14,11 @@ import de.slikey.effectlib.util.RandomUtils;
 import de.slikey.effectlib.util.VectorUtils;
 
 public class CylinderEffect extends Effect {
+
+    /**
+     * Particle of the cube
+     */
+    public Particle particle = Particle.FLAME;
 
     /**
      * Radius of cylinder

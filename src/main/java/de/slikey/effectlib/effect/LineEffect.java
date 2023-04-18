@@ -1,5 +1,6 @@
 package de.slikey.effectlib.effect;
 
+import org.bukkit.Particle;
 import org.bukkit.Location;
 import org.bukkit.util.Vector;
 import org.bukkit.configuration.ConfigurationSection;
@@ -10,6 +11,11 @@ import de.slikey.effectlib.EffectManager;
 import de.slikey.effectlib.util.VectorUtils;
 
 public class LineEffect extends Effect {
+
+    /**
+     * ParticleType of spawned particle
+     */
+    public Particle particle = Particle.FLAME;
 
     /**
      * Should it do a zig zag?

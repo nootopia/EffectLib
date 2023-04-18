@@ -1,6 +1,7 @@
 package de.slikey.effectlib.effect;
 
 import org.bukkit.Location;
+import org.bukkit.Particle;
 import org.bukkit.util.Vector;
 
 import de.slikey.effectlib.Effect;
@@ -13,6 +14,11 @@ import de.slikey.effectlib.util.VectorUtils;
  * @author Kevin
  */
 public class HillEffect extends Effect {
+
+    /**
+     * ParticleType of spawned particle
+     */
+    public Particle particle = Particle.FLAME;
 
     /**
      * Height of the hill in blocks

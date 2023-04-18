@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 import org.bukkit.Location;
+import org.bukkit.Particle;
 import org.bukkit.util.Vector;
 
 import de.slikey.effectlib.Effect;
@@ -18,6 +19,10 @@ public class DragonEffect extends Effect {
     protected final List<Float> rndF;
     protected final List<Double> rndAngle;
 
+    /**
+     * ParticleType of spawned particle
+     */
+    public Particle particle = Particle.FLAME;
     /**
      * Pitch of the dragon arc
      */

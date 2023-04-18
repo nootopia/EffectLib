@@ -1,6 +1,7 @@
 package de.slikey.effectlib.effect;
 
 import org.bukkit.Location;
+import org.bukkit.Particle;
 import org.bukkit.util.Vector;
 
 import de.slikey.effectlib.Effect;
@@ -8,6 +9,11 @@ import de.slikey.effectlib.EffectManager;
 import de.slikey.effectlib.EffectType;
 
 public class PyramidEffect extends Effect {
+
+    /**
+     * Particle of the cube
+     */
+    public Particle particle = Particle.FLAME;
 
     /**
      * Particles in each row
@@ -54,7 +60,7 @@ public class PyramidEffect extends Effect {
     private void drawEdge(Location center, Vector v, int i, int dx, int dy, int dz) {
         // Y goes from 0 to 1
         // X and Z go from -1 to 1
-        double ratio = (double) i / particles;
+        double ratio = (double)i / particles;
         if (dy == 1) {
             v.setY(ratio);
 

@@ -1,6 +1,7 @@
 package de.slikey.effectlib.effect;
 
 import org.bukkit.Location;
+import org.bukkit.Particle;
 import org.bukkit.util.Vector;
 
 import de.slikey.effectlib.Effect;
@@ -9,6 +10,11 @@ import de.slikey.effectlib.EffectManager;
 import de.slikey.effectlib.util.RandomUtils;
 
 public class FountainEffect extends Effect {
+
+    /**
+     * Particle of the fountain
+     */
+    public Particle particle = Particle.WATER_SPLASH;
 
     /**
      * Amount of strands (10)

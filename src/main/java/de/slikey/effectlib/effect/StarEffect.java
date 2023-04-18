@@ -1,6 +1,7 @@
 package de.slikey.effectlib.effect;
 
 import org.bukkit.Location;
+import org.bukkit.Particle;
 import org.bukkit.util.Vector;
 
 import de.slikey.effectlib.Effect;
@@ -11,6 +12,11 @@ import de.slikey.effectlib.util.RandomUtils;
 import de.slikey.effectlib.util.VectorUtils;
 
 public class StarEffect extends Effect {
+
+    /**
+     * Particles to create the star
+     */
+    public Particle particle = Particle.FLAME;
 
     /**
      * Particles per spike

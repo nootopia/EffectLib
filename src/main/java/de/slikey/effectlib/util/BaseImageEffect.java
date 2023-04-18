@@ -4,6 +4,7 @@ import java.io.File;
 import java.awt.image.BufferedImage;
 
 import org.bukkit.Location;
+import org.bukkit.Particle;
 import org.bukkit.util.Vector;
 
 import de.slikey.effectlib.Effect;
@@ -12,6 +13,11 @@ import de.slikey.effectlib.EffectManager;
 import de.slikey.effectlib.effect.ColoredImageEffect;
 
 public abstract class BaseImageEffect extends Effect {
+
+    /**
+     * Particle to draw the image
+     */
+    public Particle particle = Particle.REDSTONE;
 
     /**
      * For configuration-driven files

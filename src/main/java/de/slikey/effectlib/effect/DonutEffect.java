@@ -1,5 +1,6 @@
 package de.slikey.effectlib.effect;
 
+import org.bukkit.Particle;
 import org.bukkit.Location;
 import org.bukkit.util.Vector;
 
@@ -10,6 +11,11 @@ import de.slikey.effectlib.util.MathUtils;
 import de.slikey.effectlib.util.VectorUtils;
 
 public class DonutEffect extends Effect {
+
+    /**
+     * ParticleType of spawned particle
+     */
+    public Particle particle = Particle.FLAME;
 
     /**
      * Amount of particles inside of a single vertical circle
