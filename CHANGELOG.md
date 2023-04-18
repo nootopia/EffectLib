@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 10.1
+
+ - Revert a change made a year or so ago that caused all effects to use flame as their default particle
+
 # 10.0
 
  - Allow using NMS or Bukkit particle names
