@@ -26,7 +26,6 @@ import org.bukkit.util.Vector;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
-import org.bukkit.block.data.BlockData;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.scheduler.BukkitScheduler;
 import org.bukkit.configuration.MemoryConfiguration;
@@ -478,9 +477,6 @@ public class EffectManager implements Disposable {
                     value = "REDSTONE";
                 }
                 field.set(effect, ParticleUtil.getParticle(value));
-            } else if (field.getType().equals(BlockData.class)) {
-                String value = fieldSection.getString(fieldKey);
-                field.set(effect, Bukkit.createBlockData(value.toLowerCase()));
             } else if (field.getType().isEnum()) {
                 Class<Enum> enumType = (Class<Enum>) field.getType();
                 String value = fieldSection.getString(fieldKey);

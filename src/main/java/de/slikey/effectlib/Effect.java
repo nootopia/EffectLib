@@ -11,7 +11,6 @@ import org.bukkit.Location;
 import org.bukkit.util.Vector;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
-import org.bukkit.block.data.BlockData;
 import org.bukkit.configuration.ConfigurationSection;
 
 import de.slikey.effectlib.util.RandomUtils;
@@ -184,7 +183,7 @@ public abstract class Effect implements Runnable {
     public Material material;
     public byte materialData;
 
-    public BlockData blockData;
+    public String blockData;
 
     public long blockDuration;
 
