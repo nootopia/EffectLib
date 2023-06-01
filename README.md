@@ -10,6 +10,10 @@ You have no idea what a vector or matrix is, but you want to give your users som
 
 Find more information on [BukkitForums] [forum] or [BukkitDev] [dev]!
 
+Check out this plugin to demo all the effects:
+
+https://github.com/u9g/effectlib-visualizer
+
 Note that **this library** is no standalone plugin! You have to **create yourself a plugin** to run the effects!
 
 See here: https://github.com/elBukkit/EffectLibDemo
