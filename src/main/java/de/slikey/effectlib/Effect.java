@@ -29,7 +29,7 @@ public abstract class Effect implements Runnable {
     /**
      * Handles the type, the effect is played.
      *
-     * @see {@link de.slikey.effectlib.EffectType}
+     * @see de.slikey.effectlib.EffectType
      */
     public EffectType type = EffectType.INSTANT;
 
@@ -83,14 +83,14 @@ public abstract class Effect implements Runnable {
     /**
      * Delay to wait for delayed effects.
      *
-     * @see {@link de.slikey.effectlib.EffectType}
+     * @see de.slikey.effectlib.EffectType
      */
     public int delay = 0;
 
     /**
      * Interval to wait for repeating effects.
      *
-     * @see {@link de.slikey.effectlib.EffectType}
+     * @see de.slikey.effectlib.EffectType
      */
     public int period = 1;
 
@@ -98,7 +98,7 @@ public abstract class Effect implements Runnable {
      * Amount of repetitions to do.
      * Set this to -1 for an infinite effect
      *
-     * @see {@link de.slikey.effectlib.EffectType}
+     * @see de.slikey.effectlib.EffectType
      */
     public int iterations = 0;
 
@@ -119,7 +119,7 @@ public abstract class Effect implements Runnable {
     /**
      * Callback to run, after effect is done.
      *
-     * @see {@link java.lang.Runnable}
+     * @see java.lang.Runnable
      */
     public Runnable callback = null;
 

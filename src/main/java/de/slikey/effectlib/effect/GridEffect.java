@@ -77,6 +77,12 @@ public class GridEffect extends Effect {
     public void onRun() {
         Location location = getLocation();
         Vector v = new Vector();
+
+        if (location == null) {
+            cancel();
+            return;
+        }
+
         // Draw rows
         for (int i = 0; i <= (rows + 1); i++) {
             for (int j = 0; j < particlesWidth * (columns + 1); j++) {

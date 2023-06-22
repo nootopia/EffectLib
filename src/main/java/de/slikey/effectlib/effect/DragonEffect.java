@@ -66,6 +66,11 @@ public class DragonEffect extends Effect {
     public void onRun() {
         Location location = getLocation();
 
+        if (location == null) {
+            cancel();
+            return;
+        }
+
         float pitch;
         float x;
         float y;

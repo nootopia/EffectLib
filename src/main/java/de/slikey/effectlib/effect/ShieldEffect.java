@@ -45,6 +45,12 @@ public class ShieldEffect extends Effect {
     public void onRun() {
         Location location = getLocation();
         Vector v;
+
+        if (location == null) {
+            cancel();
+            return;
+        }
+
         for (int i = 0; i < particles; i++) {
             v = RandomUtils.getRandomVector().multiply(radius);
             if (!sphere) {

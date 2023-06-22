@@ -20,7 +20,7 @@ public class ConstantTransform implements Transform {
     }
 
     @Override
-    public double get(double t) {
+    public double get(double input) {
         return value;
     }
 }

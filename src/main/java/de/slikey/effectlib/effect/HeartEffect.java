@@ -60,6 +60,11 @@ public class HeartEffect extends Effect {
         Location location = getLocation();
         Vector vector = new Vector();
 
+        if (location == null) {
+            cancel();
+            return;
+        }
+
         float alpha;
         double phi;
 

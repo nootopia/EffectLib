@@ -72,6 +72,12 @@ public class PlotEffect extends Effect {
         int base = persistent ? 0 : step;
 
         Location location;
+
+        if (getLocation() == null) {
+            cancel();
+            return;
+        }
+
         double xOffset;
         double yOffset;
         double zOffset;

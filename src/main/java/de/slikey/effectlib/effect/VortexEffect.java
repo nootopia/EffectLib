@@ -66,6 +66,11 @@ public class VortexEffect extends Effect {
         double angle;
         Vector v;
 
+        if (location == null) {
+            cancel();
+            return;
+        }
+
         for (int x = 0; x < circles; x++) {
             for (int i = 0; i < helixes; i++) {
                 angle = step * radials + (2 * Math.PI * i / helixes);

@@ -25,6 +25,12 @@ public class LoveEffect extends Effect {
     @Override
     public void onRun() {
         Location location = getLocation();
+
+        if (location == null) {
+            cancel();
+            return;
+        }
+
         location.add(RandomUtils.getRandomCircleVector().multiply(RandomUtils.random.nextDouble() * 0.6d));
         location.add(0, RandomUtils.random.nextFloat() * 2, 0);
         display(particle, location);

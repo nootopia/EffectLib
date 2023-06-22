@@ -54,6 +54,12 @@ public class WarpEffect extends Effect {
     @Override
     public void onRun() {
         Location location = getLocation();
+
+        if (location == null) {
+            cancel();
+            return;
+        }
+
         if (step > rings) step = 0;
 
         double x, y, z;

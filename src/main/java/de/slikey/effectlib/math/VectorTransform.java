@@ -8,11 +8,11 @@ import de.slikey.effectlib.util.VectorUtils;
 
 public class VectorTransform {
 
-    private Transform xTransform;
-    private Transform yTransform;
-    private Transform zTransform;
+    private final Transform xTransform;
+    private final Transform yTransform;
+    private final Transform zTransform;
 
-    private boolean orient;
+    private final boolean orient;
 
     public VectorTransform(ConfigurationSection configuration) {
         xTransform = Transforms.loadTransform(configuration, "x");

@@ -95,6 +95,12 @@ public class TextEffect extends Effect {
         }
 
         Location location = getLocation();
+
+        if (location == null) {
+            cancel();
+            return;
+        }
+
         int clr;
         Vector v;
 
