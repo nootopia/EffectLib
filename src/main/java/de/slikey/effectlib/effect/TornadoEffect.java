@@ -97,6 +97,11 @@ public class TornadoEffect extends Effect {
 
     @Override
     public void onRun() {
+        if (getLocation() == null) {
+            cancel();
+            return;
+        }
+
         Location l = getLocation().add(0, yOffset, 0);
         Vector vector;
 

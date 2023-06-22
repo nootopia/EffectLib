@@ -59,6 +59,12 @@ public class TraceEffect extends Effect {
     @Override
     public void onRun() {
         Location location = getLocation();
+
+        if (location == null) {
+            cancel();
+            return;
+        }
+
         if (world == null) {
             world = location.getWorld();
         } else if (!location.getWorld().equals(world)) {

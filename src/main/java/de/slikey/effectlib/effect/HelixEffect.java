@@ -91,11 +91,15 @@ public class HelixEffect extends Effect {
     @Override
     public void onRun() {
         Location location = getLocation();
+        Vector v;
+
+        if (location == null) {
+            cancel();
+            return;
+        }
 
         float ratio;
         double angle;
-
-        Vector v;
 
         for (int i = 1; i <= strands; i++) {
             for (int j = 1; j <= particles; j++) {

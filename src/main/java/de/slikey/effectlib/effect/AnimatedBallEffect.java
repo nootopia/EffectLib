@@ -75,6 +75,11 @@ public class AnimatedBallEffect extends Effect {
         Vector vector = new Vector();
         Location location = getLocation();
 
+        if (location == null) {
+            cancel();
+            return;
+        }
+
         float t;
         float r;
         float s;

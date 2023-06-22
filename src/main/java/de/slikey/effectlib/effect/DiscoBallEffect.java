@@ -60,6 +60,12 @@ public class DiscoBallEffect extends Effect {
 
     public void onRun() {
         Location location = getLocation();
+
+        if (location == null) {
+            cancel();
+            return;
+        }
+
         //Lines
         int mL = RandomUtils.random.nextInt(maxLines - 2) + 2;
 
@@ -86,10 +92,6 @@ public class DiscoBallEffect extends Effect {
             else if (direction == Direction.UP) y = RandomUtils.random.nextInt(max * (-1) - max * (-2)) + max * (-2);
 
             target = location.clone().subtract(x, y, z);
-            if (target == null) {
-                cancel();
-                return;
-            }
 
             link = target.toVector().subtract(location.toVector());
             length = (float) link.length();

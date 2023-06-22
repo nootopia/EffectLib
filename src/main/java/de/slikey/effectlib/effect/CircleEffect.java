@@ -98,6 +98,12 @@ public class CircleEffect extends Effect {
     @Override
     public void onRun() {
         Location location = getLocation();
+
+        if (location == null) {
+            cancel();
+            return;
+        }
+
         location.subtract(xSubtract, ySubtract, zSubtract);
         double inc = maxAngle / particles;
         int steps = wholeCircle ? particles : 1;

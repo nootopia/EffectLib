@@ -105,6 +105,11 @@ public class LineEffect extends Effect {
         Location location = getLocation();
         Location target;
 
+        if (location == null) {
+            cancel();
+            return;
+        }
+
         if (length > 0) target = location.clone().add(location.getDirection().normalize().multiply(length));
         else target = getTarget();
 

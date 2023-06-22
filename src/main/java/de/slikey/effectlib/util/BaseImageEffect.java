@@ -183,8 +183,10 @@ public abstract class BaseImageEffect extends Effect {
                     VectorUtils.rotateVector(v, rotation.getX() * MathUtils.degreesToRadians, rotation.getY() * MathUtils.degreesToRadians, rotation.getZ() * MathUtils.degreesToRadians);
                 }
 
-                if (orientPitch) VectorUtils.rotateAroundAxisX(v, Math.toRadians(location.getPitch()));
-                if (orient) VectorUtils.rotateAroundAxisY(v, -location.getYaw() * MathUtils.degreesToRadians);
+                if (location != null) {
+                    if (orientPitch) VectorUtils.rotateAroundAxisX(v, Math.toRadians(location.getPitch()));
+                    if (orient) VectorUtils.rotateAroundAxisY(v, -location.getYaw() * MathUtils.degreesToRadians);
+                }
 
                 if (enableRotation) {
                     rotX = 0;

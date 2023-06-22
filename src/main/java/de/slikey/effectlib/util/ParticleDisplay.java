@@ -54,6 +54,7 @@ public abstract class ParticleDisplay {
         // Implemented in 1.13+
     }
 
+    @SuppressWarnings({"deprecation"})
     protected void displayItem(Particle particle, ParticleOptions options, Location center, double range, List<Player> targetPlayers) {
         Material material = options.material;
         if (material == null || material.isAir()) return;

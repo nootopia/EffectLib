@@ -54,6 +54,11 @@ public class DonutEffect extends Effect {
         Location location = getLocation();
         Vector v = new Vector();
 
+        if (location == null) {
+            cancel();
+            return;
+        }
+
         double theta;
         double phi;
         double cosPhi;

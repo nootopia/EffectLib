@@ -167,7 +167,6 @@ public class ModifiedEffect extends Effect {
                     parameterTransforms.put(field, transform);
                 } catch (Exception ex2) {
                     effectManager.onError("Error binding to field: '" + fieldName + "' of effect class: '" + effectClass + "'", ex2);
-                    continue;
                 }
             }
 
@@ -194,6 +193,12 @@ public class ModifiedEffect extends Effect {
             else previousOffset = new Vector();
 
             Location location = getLocation();
+
+            if (location == null) {
+                cancel();
+                return;
+            }
+
             if (orient && orientPitch) offset = VectorUtils.rotateVector(offset, location);
             else if (orient) offset = VectorUtils.rotateVector(offset, location.getYaw(), 0);
 

@@ -74,7 +74,10 @@ public class CuboidEffect extends Effect {
     public void onRun() {
         Location target = getTarget();
         Location location = getLocation();
-        if (target == null || location == null) return;
+        if (target == null || location == null) {
+            cancel();
+            return;
+        }
 
         if (!initialized) {
             if (blockSnap) {
@@ -85,7 +88,10 @@ public class CuboidEffect extends Effect {
             }
 
             if (xLength == 0 && yLength == 0 && zLength == 0) {
-                if (target == null || !target.getWorld().equals(location.getWorld())) {
+                if (target.getWorld() == null || location.getWorld() == null) {
+                    return;
+                }
+                if (!target.getWorld().getName().equals(location.getWorld().getName())) {
                     cancel();
                     return;
                 }

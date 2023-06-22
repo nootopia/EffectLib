@@ -30,6 +30,12 @@ public class SmokeEffect extends Effect {
     @Override
     public void onRun() {
         Location location = getLocation();
+
+        if (location == null) {
+            cancel();
+            return;
+        }
+
         for (int i = 0; i < particles; i++) {
             location.add(RandomUtils.getRandomCircleVector().multiply(RandomUtils.random.nextDouble() * 0.6d));
             location.add(0, RandomUtils.random.nextFloat() * 2, 0);

@@ -42,6 +42,12 @@ public class SquareEffect extends Effect {
 		if (particleIncrease != 0) particles += particleIncrease;
 
 		Location location = getLocation();
+
+		if (location == null) {
+			cancel();
+			return;
+		}
+
 		location.add(0, yOffset, 0);
 		Vector v;
 

@@ -52,6 +52,11 @@ public class ArcEffect extends Effect {
             return;
         }
 
+        if (location == null) {
+            cancel();
+            return;
+        }
+
         Vector link = target.toVector().subtract(location.toVector());
         float length = (float) link.length();
         float pitch = (float) (4 * height / Math.pow(length, 2));

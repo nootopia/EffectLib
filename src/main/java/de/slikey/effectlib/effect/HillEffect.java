@@ -52,6 +52,11 @@ public class HillEffect extends Effect {
         Location location = getLocation();
         Vector v = new Vector();
 
+        if (location == null) {
+            cancel();
+            return;
+        }
+
         double y1;
         double y2;
 

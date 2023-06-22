@@ -172,6 +172,12 @@ public class WaveEffect extends Effect {
     @Override
     public void onRun() {
         Location location = getLocation();
+
+        if (location == null) {
+            cancel();
+            return;
+        }
+
         if (firstStep) {
             velocity.copy(location.getDirection().setY(0).normalize().multiply(0.2));
             invalidate(location);

@@ -67,6 +67,11 @@ public class FountainEffect extends Effect {
     public void onRun() {
         Location location = getLocation();
 
+        if (location == null) {
+            cancel();
+            return;
+        }
+
         double angle;
         float ratio;
         double x, y, z;
