@@ -19,11 +19,6 @@ import de.slikey.effectlib.util.StringParser;
 public class TextEffect extends Effect {
 
     /**
-     * Particle to draw the text
-     */
-    public Particle particle = Particle.FIREWORKS_SPARK;
-
-    /**
      * Text to display
      */
     public String text = "Text";
@@ -79,6 +74,7 @@ public class TextEffect extends Effect {
         super(effectManager);
         font = new Font("Tahoma", Font.PLAIN, 16);
         type = EffectType.REPEATING;
+        particle = Particle.FIREWORKS_SPARK;
         period = 40;
         iterations = 20;
     }

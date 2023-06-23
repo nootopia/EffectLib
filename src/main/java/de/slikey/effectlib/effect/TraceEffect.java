@@ -15,11 +15,6 @@ import de.slikey.effectlib.EffectManager;
 public class TraceEffect extends Effect {
 
     /**
-     * Particle to spawn
-     */
-    public Particle particle = Particle.FLAME;
-
-    /**
      * Iterations to wait before refreshing particles
      */
     public int refresh = 5;
@@ -47,6 +42,7 @@ public class TraceEffect extends Effect {
     public TraceEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.FLAME;
         period = 1;
         iterations = 600;
     }

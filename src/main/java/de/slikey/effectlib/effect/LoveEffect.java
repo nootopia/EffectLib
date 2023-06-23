@@ -10,14 +10,10 @@ import de.slikey.effectlib.util.RandomUtils;
 
 public class LoveEffect extends Effect {
 
-    /**
-     * Particle to display
-     */
-    public Particle particle = Particle.HEART;
-
     public LoveEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.HEART;
         period = 2;
         iterations = 600;
     }

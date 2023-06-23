@@ -11,27 +11,35 @@ import de.slikey.effectlib.util.RandomUtils;
 
 public class SquareEffect extends Effect {
 
-	// Type of the spawned particles
-	public Particle particle = Particle.SPELL_MOB;
-
-	// Radius of the square
+	/**
+	 * Radius of the square
+	 */
 	public double radius = 0.6;
 
-	// y-offset of the square
+	/**
+	 * y-offset of the square
+	 */
 	public double yOffset = 0;
 
-	// Amount of particles to display
+	/**
+	 * Amount of particles to display
+	 */
 	public int particles = 50;
 
-	// Amount to increase the radius per tick
+	/**
+	 * Amount to increase the radius per tick
+	 */
 	public double radiusIncrease = 0;
 
-	// Amount to increase the particles per tick
+	/**
+	 * Amount to increase the particles per tick
+	 */
 	public int particleIncrease = 0;
 
 	public SquareEffect(EffectManager effectManager) {
 		super(effectManager);
 		type = EffectType.REPEATING;
+		particle = Particle.SPELL_MOB;
 		iterations = 500;
 		period = 1;
 	}

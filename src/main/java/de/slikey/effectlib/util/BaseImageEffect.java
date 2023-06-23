@@ -15,11 +15,6 @@ import de.slikey.effectlib.effect.ColoredImageEffect;
 public abstract class BaseImageEffect extends Effect {
 
     /**
-     * Particle to draw the image
-     */
-    public Particle particle = Particle.REDSTONE;
-
-    /**
      * For configuration-driven files
      */
     public String fileName = null;
@@ -114,6 +109,7 @@ public abstract class BaseImageEffect extends Effect {
     public BaseImageEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.REDSTONE;
         period = 2;
         iterations = 200;
     }

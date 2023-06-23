@@ -14,11 +14,6 @@ import de.slikey.effectlib.util.VectorUtils;
 public class StarEffect extends Effect {
 
     /**
-     * Particles to create the star
-     */
-    public Particle particle = Particle.FLAME;
-
-    /**
      * Particles per spike
      */
     public int particles = 50;
@@ -41,6 +36,7 @@ public class StarEffect extends Effect {
     public StarEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.FLAME;
         period = 4;
         iterations = 50;
     }

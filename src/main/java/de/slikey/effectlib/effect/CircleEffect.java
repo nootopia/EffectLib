@@ -18,11 +18,6 @@ public class CircleEffect extends Effect {
     public boolean orient = false;
 
     /**
-     * ParticleType of spawned particle
-     */
-    public Particle particle = Particle.VILLAGER_HAPPY;
-
-    /**
      * Rotation of the torus.
      */
     public double xRotation, yRotation, zRotation = 0;
@@ -86,6 +81,7 @@ public class CircleEffect extends Effect {
     public CircleEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.VILLAGER_HAPPY;
         period = 2;
         iterations = 50;
     }

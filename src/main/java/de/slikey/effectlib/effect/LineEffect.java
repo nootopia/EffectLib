@@ -13,11 +13,6 @@ import de.slikey.effectlib.util.VectorUtils;
 public class LineEffect extends Effect {
 
     /**
-     * ParticleType of spawned particle
-     */
-    public Particle particle = Particle.FLAME;
-
-    /**
      * Should it do a zig zag?
      */
     public boolean isZigZag = false;
@@ -87,6 +82,7 @@ public class LineEffect extends Effect {
     public LineEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.FLAME;
         period = 1;
         iterations = 1;
     }

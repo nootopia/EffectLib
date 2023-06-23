@@ -13,11 +13,6 @@ import de.slikey.effectlib.util.VectorUtils;
 public class VortexEffect extends Effect {
 
     /**
-     * ParticleType of spawned particle
-     */
-    public Particle particle = Particle.FLAME;
-
-    /**
      * Radius of vortex (2)
      */
     public float radius = 2;
@@ -51,6 +46,7 @@ public class VortexEffect extends Effect {
     public VortexEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.FLAME;
         period = 1;
         iterations = 200;
     }

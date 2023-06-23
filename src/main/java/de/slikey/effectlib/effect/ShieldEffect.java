@@ -12,11 +12,6 @@ import de.slikey.effectlib.util.RandomUtils;
 public class ShieldEffect extends Effect {
 
     /**
-     * ParticleType of spawned particle
-     */
-    public Particle particle = Particle.FLAME;
-
-    /**
      * Radius of the shield
      */
     public double radius = 3;
@@ -37,6 +32,7 @@ public class ShieldEffect extends Effect {
     public ShieldEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.FLAME;
         iterations = 500;
         period = 1;
     }

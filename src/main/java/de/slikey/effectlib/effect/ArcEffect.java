@@ -11,11 +11,6 @@ import de.slikey.effectlib.EffectManager;
 public class ArcEffect extends Effect {
 
     /**
-     * ParticleType of spawned particle
-     */
-    public Particle particle = Particle.FLAME;
-
-    /**
      * Height of the arc in blocks
      */
     public float height = 2;
@@ -33,6 +28,7 @@ public class ArcEffect extends Effect {
     public ArcEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.FLAME;
         period = 1;
         iterations = 200;
     }

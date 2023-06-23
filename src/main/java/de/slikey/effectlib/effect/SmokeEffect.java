@@ -11,11 +11,6 @@ import de.slikey.effectlib.util.RandomUtils;
 public class SmokeEffect extends Effect {
 
     /**
-     * ParticleType of spawned particle
-     */
-    public Particle particle = Particle.SMOKE_NORMAL;
-
-    /**
      * Number of particles to display
      */
     public int particles = 20;
@@ -23,6 +18,7 @@ public class SmokeEffect extends Effect {
     public SmokeEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.SMOKE_NORMAL;
         period = 1;
         iterations = 300;
     }

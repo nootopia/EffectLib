@@ -14,11 +14,6 @@ import de.slikey.effectlib.util.VectorUtils;
 public class ConeEffect extends Effect {
 
     /**
-     * ParticleType of spawned particle
-     */
-    public Particle particle = Particle.FLAME;
-
-    /**
      * Growing per iteration in the length (0.05)
      */
     public float lengthGrow = 0.05F;
@@ -61,6 +56,7 @@ public class ConeEffect extends Effect {
     public ConeEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.FLAME;
         period = 1;
         iterations = 200;
     }

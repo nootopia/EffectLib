@@ -20,29 +20,30 @@ public class DragonEffect extends Effect {
     protected final List<Double> rndAngle;
 
     /**
-     * ParticleType of spawned particle
-     */
-    public Particle particle = Particle.FLAME;
-    /**
      * Pitch of the dragon arc
      */
     public float pitch = 0.1F;
+
     /**
      * Arcs to build the breath
      */
     public int arcs = 20;
+
     /**
      * Particles per arc
      */
     public int particles = 30;
+
     /**
      * Steps per iteration
      */
     public int stepsPerIteration = 2;
+
     /**
      * Length in blocks
      */
     public float length = 4;
+
     /**
      * Current step. Works as counter
      */
@@ -51,6 +52,7 @@ public class DragonEffect extends Effect {
     public DragonEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.FLAME;
         period = 2;
         iterations = 200;
         rndF = new ArrayList<>(arcs);

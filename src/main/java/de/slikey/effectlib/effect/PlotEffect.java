@@ -19,11 +19,6 @@ public class PlotEffect extends Effect {
     private final static Set<String> variables = new HashSet<>(Arrays.asList(_variables));
 
     /**
-     * ParticleType of spawned particle
-     */
-    public Particle particle = Particle.REDSTONE;
-
-    /**
      * The equation to use for x-values. If not set, the iteration count will be used.
      */
     public String xEquation;
@@ -63,6 +58,7 @@ public class PlotEffect extends Effect {
     public PlotEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.REDSTONE;
         period = 1;
         iterations = 100;
     }

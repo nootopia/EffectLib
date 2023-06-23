@@ -16,11 +16,6 @@ import de.slikey.effectlib.util.VectorUtils;
 public class CylinderEffect extends Effect {
 
     /**
-     * Particle of the cube
-     */
-    public Particle particle = Particle.FLAME;
-
-    /**
      * Radius of cylinder
      */
     public float radius = 1;
@@ -84,6 +79,7 @@ public class CylinderEffect extends Effect {
     public CylinderEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.FLAME;
         period = 2;
         iterations = 200;
     }

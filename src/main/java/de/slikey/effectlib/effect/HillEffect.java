@@ -16,11 +16,6 @@ import de.slikey.effectlib.util.VectorUtils;
 public class HillEffect extends Effect {
 
     /**
-     * ParticleType of spawned particle
-     */
-    public Particle particle = Particle.FLAME;
-
-    /**
      * Height of the hill in blocks
      */
     public float height = 2.5F;
@@ -43,6 +38,7 @@ public class HillEffect extends Effect {
     public HillEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.FLAME;
         period = 10;
         iterations = 20;
     }

@@ -11,13 +11,12 @@ import de.slikey.effectlib.util.RandomUtils;
 
 public class FlameEffect extends Effect {
 
-    public Particle particle = Particle.FLAME;
-
     public int particles = 10;
 
     public FlameEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.FLAME;
         period = 1;
         iterations = 600;
     }

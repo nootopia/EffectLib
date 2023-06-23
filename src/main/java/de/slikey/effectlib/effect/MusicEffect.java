@@ -9,8 +9,6 @@ import de.slikey.effectlib.EffectManager;
 
 public class MusicEffect extends Effect {
 
-    public Particle particle = Particle.NOTE;
-
     /**
      * Radials to spawn next note.
      */
@@ -29,6 +27,7 @@ public class MusicEffect extends Effect {
     public MusicEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.NOTE;
         iterations = 400;
         period = 1;
     }

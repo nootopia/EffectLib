@@ -14,11 +14,6 @@ import de.slikey.effectlib.math.EquationTransform;
 public class EquationEffect extends Effect {
 
     /**
-     * ParticleType of spawned particle
-     */
-    public Particle particle = Particle.REDSTONE;
-
-    /**
      * Equations defining the X,Y,Z coordinates over
      * iteration t
      * 
@@ -99,6 +94,7 @@ public class EquationEffect extends Effect {
     public EquationEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.REDSTONE;
         period = 1;
         iterations = 100;
     }

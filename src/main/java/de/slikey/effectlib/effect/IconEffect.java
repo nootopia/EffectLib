@@ -9,16 +9,12 @@ import de.slikey.effectlib.EffectManager;
 
 public class IconEffect extends Effect {
 
-    /**
-     * ParticleType of spawned particle
-     */
-    public Particle particle = Particle.VILLAGER_ANGRY;
-
     public int yOffset = 2;
 
     public IconEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.VILLAGER_ANGRY;
         period = 4;
         iterations = 25;
     }
