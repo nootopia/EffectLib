@@ -11,11 +11,6 @@ import de.slikey.effectlib.EffectManager;
 public class CuboidEffect extends Effect {
 
     /**
-     * Particle of the cube
-     */
-    public Particle particle = Particle.FLAME;
-
-    /**
      * Particles in each row
      */
     public int particles = 8;
@@ -61,6 +56,7 @@ public class CuboidEffect extends Effect {
     public CuboidEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.FLAME;
         period = 5;
         iterations = 200;
     }

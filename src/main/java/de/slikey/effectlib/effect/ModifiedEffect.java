@@ -132,11 +132,11 @@ public class ModifiedEffect extends Effect {
                 return;
             }
 
-            innerEffect.material = material;
-            innerEffect.materialData = materialData;
+            innerEffect.setMaterial(material);
+            innerEffect.setMaterialData(materialData);
 
-            innerEffect.blockData = blockData;
-            innerEffect.blockDuration = blockDuration;
+            innerEffect.setBlockData(blockData);
+            innerEffect.setBlockDuration(blockDuration);
 
             String equation;
             String fieldName;

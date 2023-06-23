@@ -17,11 +17,6 @@ import de.slikey.effectlib.util.VectorUtils;
 public class HeartEffect extends Effect {
 
     /**
-     * ParticleType of spawned particle
-     */
-    public Particle particle = Particle.CRIT_MAGIC;
-
-    /**
      * Heart-particles per interation (100)
      */
     public int particles = 50;
@@ -53,6 +48,7 @@ public class HeartEffect extends Effect {
 
     public HeartEffect(EffectManager effectManager) {
         super(effectManager);
+        particle = Particle.CRIT_MAGIC;
     }
 
     @Override

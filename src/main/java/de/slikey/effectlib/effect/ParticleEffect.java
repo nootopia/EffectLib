@@ -8,14 +8,10 @@ import de.slikey.effectlib.EffectManager;
 
 public class ParticleEffect extends Effect {
 
-    /**
-     * ParticleType of spawned particle
-     */
-    public Particle particle = Particle.VILLAGER_ANGRY;
-
     public ParticleEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.VILLAGER_ANGRY;
         period = 1;
         iterations = 1;
     }

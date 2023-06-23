@@ -16,7 +16,7 @@ import de.slikey.effectlib.util.VectorUtils;
 
 public class WaveEffect extends Effect {
 
-    public Particle particle = Particle.DRIP_WATER;
+    public Particle mainParticle = Particle.DRIP_WATER;
     public Particle cloudParticle = Particle.CLOUD;
     public Color cloudColor = null;
 
@@ -192,7 +192,7 @@ public class WaveEffect extends Effect {
 
         for (Vector v : waterCache) {
             location.add(v);
-            display(particle, location);
+            display(mainParticle, location);
             location.subtract(v);
         }
     }

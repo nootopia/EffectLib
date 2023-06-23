@@ -11,11 +11,6 @@ import de.slikey.effectlib.EffectType;
 public class PyramidEffect extends Effect {
 
     /**
-     * Particle of the cube
-     */
-    public Particle particle = Particle.FLAME;
-
-    /**
      * Particles in each row
      */
     public int particles = 8;
@@ -28,6 +23,7 @@ public class PyramidEffect extends Effect {
     public PyramidEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.FLAME;
         period = 5;
         iterations = 200;
     }

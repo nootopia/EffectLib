@@ -12,11 +12,6 @@ import de.slikey.effectlib.util.VectorUtils;
 public class HelixEffect extends Effect {
 
     /**
-     * Particle to form the helix
-     */
-    public Particle particle = Particle.FLAME;
-
-    /**
      * Amount of strands
      */
     public int strands = 8;
@@ -79,6 +74,7 @@ public class HelixEffect extends Effect {
     public HelixEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.FLAME;
         period = 10;
         iterations = 8;
     }

@@ -12,11 +12,6 @@ import de.slikey.effectlib.util.RandomUtils;
 public class FountainEffect extends Effect {
 
     /**
-     * Particle of the fountain
-     */
-    public Particle particle = Particle.WATER_SPLASH;
-
-    /**
      * Amount of strands (10)
      */
     public int strands = 10;
@@ -59,6 +54,7 @@ public class FountainEffect extends Effect {
     public FountainEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.WATER_SPLASH;
         period = 2;
         iterations = 100;
     }

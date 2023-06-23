@@ -13,11 +13,6 @@ import de.slikey.effectlib.util.VectorUtils;
 public class DonutEffect extends Effect {
 
     /**
-     * ParticleType of spawned particle
-     */
-    public Particle particle = Particle.FLAME;
-
-    /**
      * Amount of particles inside of a single vertical circle
      */
     public int particlesCircle = 10;
@@ -45,6 +40,7 @@ public class DonutEffect extends Effect {
     public DonutEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.FLAME;
         period = 10;
         iterations = 20;
     }

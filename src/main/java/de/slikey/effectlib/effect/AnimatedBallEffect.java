@@ -19,11 +19,6 @@ import de.slikey.effectlib.util.VectorUtils;
 public class AnimatedBallEffect extends Effect {
 
     /**
-     * ParticleType of spawned particle
-     */
-    public Particle particle = Particle.SPELL_WITCH;
-
-    /**
      * Ball particles total (150)
      */
     public int particles = 150;
@@ -61,6 +56,7 @@ public class AnimatedBallEffect extends Effect {
     public AnimatedBallEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.SPELL_WITCH;
         iterations = 500;
         period = 1;
     }

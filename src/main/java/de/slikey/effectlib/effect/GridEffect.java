@@ -12,11 +12,6 @@ import de.slikey.effectlib.util.VectorUtils;
 public class GridEffect extends Effect {
 
     /**
-     * ParticleType of the nucleus
-     */
-    public Particle particle = Particle.FLAME;
-
-    /**
      * Rows of the grid
      */
     public int rows = 5;
@@ -69,6 +64,7 @@ public class GridEffect extends Effect {
     public GridEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.INSTANT;
+        particle = Particle.FLAME;
         period = 5;
         iterations = 50;
     }

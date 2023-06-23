@@ -13,11 +13,6 @@ import de.slikey.effectlib.util.VectorUtils;
 public class CubeEffect extends Effect {
 
     /**
-     * Particle of the cube
-     */
-    public Particle particle = Particle.FLAME;
-
-    /**
      * Length of the edges
      */
     public float edgeLength = 3;
@@ -65,6 +60,7 @@ public class CubeEffect extends Effect {
     public CubeEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.FLAME;
         period = 5;
         iterations = 200;
     }

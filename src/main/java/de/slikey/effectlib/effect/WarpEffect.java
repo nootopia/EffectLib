@@ -20,11 +20,6 @@ public class WarpEffect extends Effect {
     public int particles = 20;
 
     /**
-     * Particle to display
-     */
-    public Particle particle = Particle.FIREWORKS_SPARK;
-
-    /**
      * Interval of the circles
      */
     public float grow = 0.2F;
@@ -42,6 +37,7 @@ public class WarpEffect extends Effect {
     public WarpEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.FIREWORKS_SPARK;
         period = 2;
         iterations = rings;
     }

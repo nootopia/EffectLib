@@ -12,11 +12,6 @@ import de.slikey.effectlib.util.RandomUtils;
 public class SphereEffect extends Effect {
 
     /**
-     * ParticleType of spawned particle
-     */
-    public Particle particle = Particle.SPELL_MOB;
-
-    /**
      * Radius of the sphere
      */
     public double radius = 0.6;
@@ -42,6 +37,7 @@ public class SphereEffect extends Effect {
     public SphereEffect(EffectManager effectManager) {
         super(effectManager);
         type = EffectType.REPEATING;
+        particle = Particle.SPELL_MOB;
         iterations = 500;
         period = 1;
     }
