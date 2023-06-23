@@ -23,58 +23,59 @@ import javax.annotation.Nullable;
 public abstract class Effect implements Runnable {
 
     protected final EffectManager effectManager;
-    protected EffectType type = EffectType.INSTANT;
-    protected Particle particle;
-    protected Color color = null;
-    protected List<Color> colorList = null;
-    protected String colors = null;
-    protected Color toColor = null;
-    protected List<Color> toColorList = null;
-    protected String toColors = null;
-    protected int shriekDelay;
-    protected float sculkChargeRotation;
-    protected int arrivalTime;
     protected String subEffectClass = null;
-    protected ConfigurationSection subEffect = null;
-    protected float speed = 0;
-    protected float particleData = 0;
-    protected int delay = 0;
-    protected int period = 1;
-    protected int iterations = 0;
-    protected Integer duration = null;
-    protected double probability = 1;
-    protected Runnable callback = null;
-    protected float visibleRange = 32;
-    protected boolean autoOrient = false;
-    protected Vector offset = null;
-    protected Vector relativeOffset = null;
-    protected Vector targetOffset = null;
-    protected float yawOffset = 0;
-    protected float pitchOffset = 0;
-    protected Float yaw = null;
-    protected Float pitch = null;
-    protected boolean updateLocations = true;
-    protected boolean updateDirections = true;
-    protected Player targetPlayer;
-    protected List<Player> targetPlayers;
-    protected Material material;
-    protected byte materialData;
-    protected String blockData;
-    protected long blockDuration;
-    protected int particleCount = 1;
-    protected float particleOffsetX = 0;
-    protected float particleOffsetY = 0;
-    protected float particleOffsetZ = 0;
-    protected float particleSize = 1;
-    protected boolean asynchronous = true;
     protected DynamicLocation origin = null;
     protected DynamicLocation target = null;
     protected int maxIterations;
-    protected boolean disappearWithOriginEntity = false;
-    protected boolean disappearWithTargetEntity = false;
-    protected boolean done = false;
-    protected boolean playing = false;
-    protected long startTime;
+    private boolean done = false;
+    private boolean playing = false;
+    private long startTime;
+
+    public EffectType type = EffectType.INSTANT;
+    public Particle particle;
+    public Color color = null;
+    public List<Color> colorList = null;
+    public String colors = null;
+    public Color toColor = null;
+    public List<Color> toColorList = null;
+    public String toColors = null;
+    public int shriekDelay;
+    public float sculkChargeRotation;
+    public int arrivalTime;
+    public ConfigurationSection subEffect = null;
+    public float speed = 0;
+    public float particleData = 0;
+    public int delay = 0;
+    public int period = 1;
+    public int iterations = 0;
+    public Integer duration = null;
+    public double probability = 1;
+    public Runnable callback = null;
+    public float visibleRange = 32;
+    public boolean autoOrient = false;
+    public Vector offset = null;
+    public Vector relativeOffset = null;
+    public Vector targetOffset = null;
+    public float yawOffset = 0;
+    public float pitchOffset = 0;
+    public Float yaw = null;
+    public Float pitch = null;
+    public boolean updateLocations = true;
+    public boolean updateDirections = true;
+    public Player targetPlayer;
+    public List<Player> targetPlayers;
+    public Material material;
+    public byte materialData;
+    public String blockData;
+    public long blockDuration;
+    public int particleCount = 1;
+    public float particleOffsetX = 0;
+    public float particleOffsetY = 0;
+    public float particleOffsetZ = 0;
+    public float particleSize = 1;
+    public boolean asynchronous = true;
+    public boolean disappearWithOriginEntity = false;
+    public boolean disappearWithTargetEntity = false;
 
     public EffectManager getEffectManager() {
         return effectManager;
@@ -776,7 +777,7 @@ public abstract class Effect implements Runnable {
     }
 
     public void reloadParameters() {
-        // TODO - why is this empty?
+        // This can be implemented by any effect that needs to reset state when in an inner loop of a Modified effect
     }
 
 }
