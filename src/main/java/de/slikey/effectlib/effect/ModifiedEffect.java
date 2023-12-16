@@ -126,7 +126,7 @@ public class ModifiedEffect extends Effect {
                 return;
             }
 
-            innerEffect = effectManager.getEffect(effectClass, effect, origin, target, null, targetPlayer);
+            innerEffect = effectManager.getEffect(effectClass, effect, origin, target, null, targetPlayers);
             if (innerEffect == null) {
                 cancel();
                 return;

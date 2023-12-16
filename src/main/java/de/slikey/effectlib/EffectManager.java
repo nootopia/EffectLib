@@ -207,6 +207,15 @@ public class EffectManager implements Disposable {
     }
 
     public Effect getEffect(String effectClass, ConfigurationSection parameters, DynamicLocation origin, DynamicLocation target, ConfigurationSection parameterMap, Player targetPlayer, String logContext) {
+        List<Player> targetPlayers = null;
+        if (targetPlayer != null) {
+            targetPlayers = new ArrayList<>();
+            targetPlayers.add(targetPlayer);
+        }
+        return getEffect(effectClass, parameters, origin, target, parameterMap, targetPlayers, logContext);
+    }
+
+    public Effect getEffect(String effectClass, ConfigurationSection parameters, DynamicLocation origin, DynamicLocation target, ConfigurationSection parameterMap, List<Player> targetPlayers, String logContext) {
         Effect effect = getEffectByClassName(effectClass);
         if (effect == null) return null;
 
@@ -235,7 +244,7 @@ public class EffectManager implements Disposable {
         if (origin != null) effect.setDynamicOrigin(origin);
         effect.setDynamicTarget(target);
 
-        if (targetPlayer != null) effect.setTargetPlayer(targetPlayer);
+        effect.setTargetPlayers(targetPlayers);
 
         return effect;
     }
@@ -338,6 +347,10 @@ public class EffectManager implements Disposable {
 
     public void onError(Throwable ex) {
         getLogger().log(Level.SEVERE, "Unexpected EffectLib Error: " + ex.getMessage(), ex);
+    }
+
+    public Effect getEffect(String effectClass, ConfigurationSection parameters, DynamicLocation origin, DynamicLocation target, ConfigurationSection parameterMap, List<Player> targetPlayers) {
+        return getEffect(effectClass, parameters, origin, target, parameterMap, targetPlayers, "Unknown");
     }
 
     public Effect getEffect(String effectClass, ConfigurationSection parameters, DynamicLocation origin, DynamicLocation target, ConfigurationSection parameterMap, Player targetPlayer) {

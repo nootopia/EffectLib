@@ -62,7 +62,6 @@ public abstract class Effect implements Runnable {
     public Float pitch = null;
     public boolean updateLocations = true;
     public boolean updateDirections = true;
-    public Player targetPlayer;
     public List<Player> targetPlayers;
     public Material material;
     public byte materialData;
@@ -317,11 +316,20 @@ public abstract class Effect implements Runnable {
      * A specific player who should see this effect.
      */
     public Player getTargetPlayer() {
-        return targetPlayer;
+        if (targetPlayers != null && !targetPlayers.isEmpty()) {
+            return targetPlayers.get(0);
+        }
+        return null;
     }
 
     public void setTargetPlayer(Player targetPlayer) {
-        this.targetPlayer = targetPlayer;
+        if (targetPlayer == null) {
+            this.targetPlayers = null;
+        } else {
+            List<Player> list = new ArrayList<>();
+            list.add(targetPlayer);
+            setTargetPlayers(list);
+        }
     }
 
     /**
@@ -745,11 +753,6 @@ public abstract class Effect implements Runnable {
     protected void display(Particle particle, Location location, Color color, Color toColor, float speed, int amount) {
         // display particles only when particleCount is equal or more than 0
         if (particleCount >= 0) {
-            if (targetPlayers == null && targetPlayer != null) {
-                targetPlayers = new ArrayList<>();
-                targetPlayers.add(targetPlayer);
-            }
-
             Color currentColor = color;
             if (colorList != null && !colorList.isEmpty()) {
                 currentColor = colorList.get(ThreadLocalRandom.current().nextInt(colorList.size()));

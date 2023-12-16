@@ -2,6 +2,7 @@
 
 # 10.2
 
+ - Merge the targetPlayer and targetPlayers API
  - Fix pre-1.13 compatibility. 
    Fake blocks only work in 1.13+
 
