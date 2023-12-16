@@ -1,5 +1,6 @@
 package de.slikey.effectlib.util;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -151,50 +152,63 @@ public class CustomSound {
         play(plugin, plugin == null ? null : plugin.getLogger(), sourceLocation);
     }
 
+    public void play(Logger logger, Location sourceLocation, Collection<Player> players) {
+        play(logger, sourceLocation, players, true, true);
+    }
+
+    public void play(Logger logger, Location sourceLocation, Collection<Player> players, boolean playBuiltin, boolean playCustom) {
+        for (Player player : players) {
+            if (playCustom && customSound != null) {
+                try {
+                    playCustomSound(logger, player, sourceLocation, customSound, volume, pitch);
+                } catch (Exception ex) {
+                    if (logger != null) logger.warning("Failed to play custom sound: " + customSound);
+                }
+            }
+            if (playBuiltin && sound != null) {
+                try {
+                    player.playSound(sourceLocation, sound, volume, pitch);
+                } catch (Exception ex) {
+                    if (logger != null) logger.warning("Failed to play sound: " + sound);
+                }
+            }
+        }
+    }
+
     public void play(Plugin plugin, Logger logger, Location sourceLocation) {
+        play(plugin, logger, sourceLocation, null);
+    }
+
+    public void play(Plugin plugin, Logger logger, Location sourceLocation, Collection<Player> players) {
         if (sourceLocation == null || plugin == null) return;
 
-        if (customSound != null) {
-            try {
-                int range = this.range;
-                if (range <= 0) range = (int) (volume > 1.0 ? (16.0 * volume) : 16.0);
-
-                int rangeSquared = range * range;
-                Collection<? extends Player> players = plugin.getServer().getOnlinePlayers();
-                for (Player player : players) {
-                    Location location = player.getLocation();
-                    if (location.getWorld() != null) {
-                        if (location.getWorld().equals(sourceLocation.getWorld()) && location.distanceSquared(sourceLocation) <= rangeSquared) {
-                            // player.playSound(sourceLocation, customSound, volume, pitch);
-                            playCustomSound(logger, player, sourceLocation, customSound, volume, pitch);
-                        }
-                    }
-                }
-            } catch (Exception ex) {
-                if (logger != null) logger.warning("Failed to play custom sound: " + customSound);
-            }
-        }
-
-        if (sound != null) {
-            try {
-                if (range > 0) {
-                    int rangeSquared = range * range;
-                    Collection<? extends Player> players = plugin.getServer().getOnlinePlayers();
-                    for (Player player : players) {
-                        Location location = player.getLocation();
-                        if (location.getWorld() != null) {
-                            if (location.getWorld().equals(sourceLocation.getWorld()) && location.distanceSquared(sourceLocation) <= rangeSquared) {
-                                player.playSound(sourceLocation, sound, volume, pitch);
-                            }
-                        }
-                    }
-                } else if (sourceLocation.getWorld() != null){
+        // Special-case for legacy behavior of using builtin sound method use
+        boolean playBuiltin = range > 0 || players != null;
+        if (players == null) {
+            if (!playBuiltin) {
+                // This is here to match the previous behavior when range = 0, which falls back to the native
+                // sound play method
+                if (sourceLocation.getWorld() != null){
                     sourceLocation.getWorld().playSound(sourceLocation, sound, volume, pitch);
                 }
-            } catch (Exception ex) {
-                if (logger != null) logger.warning("Failed to play sound: " + sound);
+            }
+
+            players = new ArrayList<>();
+            int range = this.range;
+            if (range <= 0) range = (int) (volume > 1.0 ? (16.0 * volume) : 16.0);
+            int rangeSquared = range * range;
+            Collection<? extends Player> allPlayers = plugin.getServer().getOnlinePlayers();
+            for (Player player : allPlayers) {
+                Location location = player.getLocation();
+                if (location.getWorld() != null) {
+                    if (location.getWorld().equals(sourceLocation.getWorld()) && location.distanceSquared(sourceLocation) <= rangeSquared) {
+                        players.add(player);
+                    }
+                }
             }
         }
+
+        play(logger, sourceLocation, players, playBuiltin, true);
     }
 
     public void play(Plugin plugin, Entity entity) {
