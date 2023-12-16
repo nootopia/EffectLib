@@ -27,11 +27,10 @@ public abstract class ParticleDisplay {
     protected void spawnParticle(Particle particle, ParticleOptions options, Location center, double range, List<Player> targetPlayers) {
         try {
             if (targetPlayers == null) {
+                // Note: this code is mirrored in EffectManager
                 double squared = range * range;
                 for (final Player player : Bukkit.getOnlinePlayers()) {
-                    if (manager.isPlayerIgnored(player)) continue;
-                    if (player.getWorld() != center.getWorld()) continue;
-                    if (player.getLocation().distanceSquared(center) > squared) continue;
+                    if (!manager.isVisiblePlayer(player, center, squared)) continue;
 
                     player.spawnParticle(particle, center, options.amount, options.offsetX, options.offsetY, options.offsetZ, options.speed, options.data);
                     displayFakeBlock(player, center, options);

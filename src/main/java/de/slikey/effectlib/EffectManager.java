@@ -568,4 +568,21 @@ public class EffectManager implements Disposable {
         else ignoredPlayers.remove(player.getUniqueId());
     }
 
+    public boolean isVisiblePlayer(Player player, Location center, double distanceSquared) {
+        if (isPlayerIgnored(player)) return false;
+        if (player.getWorld() != center.getWorld()) return false;
+        if (player.getLocation().distanceSquared(center) > distanceSquared) return false;
+        return true;
+    }
+
+    public List<Player> getVisiblePlayers(Location center, double range) {
+        double squared = range * range;
+        List<Player> visible = new ArrayList<>();
+        for (final Player player : Bukkit.getOnlinePlayers()) {
+            if (isVisiblePlayer(player, center, squared)) {
+                visible.add(player);
+            }
+        }
+        return visible;
+    }
 }
