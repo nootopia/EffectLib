@@ -776,6 +776,7 @@ public abstract class Effect implements Runnable {
         playing = false;
         done = true;
         effectManager.done(this);
+        targetPlayers = null;
         onDone();
     }
 
