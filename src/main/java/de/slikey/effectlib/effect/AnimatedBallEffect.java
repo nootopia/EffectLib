@@ -12,7 +12,7 @@ import de.slikey.effectlib.util.VectorUtils;
 
 /**
  * Creates an animated Sphere.. Thanks to the author for sharing it!
- * https://www.youtube.com/watch?feature=player_embedded&v=RUjIw_RprRw
+ * <a href="https://www.youtube.com/watch?feature=player_embedded&v=RUjIw_RprRw">Demo on YouTube</a>
  *
  * @author <a href="http://forums.bukkit.org/members/qukie.90952701/">Qukie</a>
  */
