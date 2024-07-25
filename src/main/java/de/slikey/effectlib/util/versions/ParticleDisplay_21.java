@@ -12,12 +12,10 @@ import org.bukkit.entity.Player;
 
 import java.util.List;
 
-public class ParticleDisplay_20_5 extends ParticleDisplay {
+public class ParticleDisplay_21 extends ParticleDisplay {
 
 	@Override
 	public void display(Particle particle, ParticleOptions options, Location center, double range, List<Player> targetPlayers) {
-		// Legacy colorizeable particles
-		// 1.20.5 has removed Particle#SPELL_MOB_AMBIENT and SPELL_MOB is now ENTITY_EFFECT
 		if (options.color != null && (particle == Particle.valueOf("ENTITY_EFFECT"))) {
 			displayLegacyColored(particle, options, center, range, targetPlayers);
 			return;
